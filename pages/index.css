@@ -1,18 +1,1 @@
-@import url(../vendor/normalize.css);
-@import url(../blocks/header.css);
-@import url(../blocks/page.css);
-@import url(../blocks/card.css);
-@import url(../blocks/footer.css);
-
-.page {
-}
-.header {
-}
-.profile {
-}
-.profile__grid {
-}
-footer {
-}
-.footer__copyright {
-}
+@import url(/blocks/page.css);
