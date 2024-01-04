@@ -1,8 +1,17 @@
 .page {
-  height: 100vh;
-  max-width: 1280px;
-  padding: 45px 200px;
   background-color: black;
-  color: #fff;
-  font-family: "Inter", "Arial", sans-serif;
+  color: white;
+}
+
+.page__section {
+  max-width: 880px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.page__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
