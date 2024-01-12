@@ -1,24 +1,52 @@
-# Project 3: Around The U.S.
+# Around The U.S.
 
-### Overview
+## Overview
 
-- Intro
-- Figma
-- Images
+Around The U.S. is a web application showcasing beautiful locations in the United States. Users can explore various scenic spots and interact with the content.
 
-**Intro**
+## Technologies Used
 
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+- HTML5
+- CSS3
 
-**Figma**
+## Functionality
 
-- [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
+### Home Page
 
-**Images**
+- Header:
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
+  - Displays the logo of "Around The U.S."
 
-Good luck and have fun!
+- Profile Section:
+
+  - Shows a user's profile picture, name, and description.
+  - Includes an edit button for profile editing.
+  - Features an "Add" button for adding new content.
+
+- Cards Section:
+
+  - Displays a list of cards, each representing a scenic location.
+  - Each card includes an image, location name, and a like button.
+
+- Footer:
+  - Displays a copyright notice.
+
+## Future Plans
+
+- Implement user authentication for personalized experiences.
+- Add a feature for users to share their own scenic photos.
+- Enhance the like button functionality with user-specific data.
+- Improve overall responsiveness for better mobile experience.
+- Incorporate dynamic content loading for a smoother user experience.
+- Integrate a commenting system for users to share thoughts on each location.
+
+## Contributing
+
+Contributions are welcome! Please follow the [contribution guidelines](CONTRIBUTING.md).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 **GITHUB PAGES URL**
 https://drnoob123.github.io/se_project_aroundtheus/
