@@ -7,3 +7,11 @@
   color: #545454;
   margin: 0;
 }
+
+@media screen and (max-width: 480px) {
+  .footer__copyright {
+    display: flex;
+    justify-content: left;
+    padding: 0 0 36px 19px;
+  }
+}

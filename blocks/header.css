@@ -6,3 +6,10 @@
   width: 173px;
   height: 33px;
 }
+@media screen and (max-width: 480px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
