@@ -42,9 +42,9 @@
   white-space: nowrap;
 }
 .card__like-button {
-  background: url(../images/Vector.svg);
+  background: transparent url(../images/Vector.svg) no-repeat;
   background-color: white;
   height: 18px;
-  width: 21px;
+  width: 27px;
   border-style: none;
 }
