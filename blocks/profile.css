@@ -1,7 +1,6 @@
 .profile {
   display: flex;
   align-items: center;
-
   padding: 40px 0 0;
 }
 
@@ -48,26 +47,4 @@
   object-fit: cover;
   background-position: center;
   margin-right: 24px;
-}
-
-@media screen and (max-width: 480px) {
-  .profile {
-    background-color: pink;
-    flex-direction: column;
-  }
-
-  .profile__info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
-  .profile__description {
-    width: 100%;
-    text-align: center;
-  }
-  .profile__add-button {
-    margin: 0;
-    width: 480px;
-  }
 }
