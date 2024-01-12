@@ -9,6 +9,11 @@
   display: grid;
   grid-template-areas: "title button" "description description";
   grid-template-columns: minmax(auto, 373px) auto;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 48px;
+  text-align: left;
 }
 
 .profile__edit-button {
@@ -20,10 +25,17 @@
   border-color: white;
 }
 
+.profile__edit-button:hover {
+  opacity: 0.6;
+}
 .profile__add-button {
   background: transparent url(../images/add-button.svg) center no-repeat;
   height: 50px;
   border-color: white;
+}
+
+.profile__add-button:hover {
+  opacity: 0.6;
 }
 
 .profile__title {
@@ -41,6 +53,12 @@
   font-weight: 500;
   grid-area: description;
   margin: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 .profile__image {
