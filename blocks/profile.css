@@ -1,6 +1,7 @@
 .profile {
   display: flex;
   align-items: center;
+
   padding: 40px 0 0;
 }
 
@@ -21,7 +22,6 @@
   background: transparent url(../images/add-button.svg) center no-repeat;
   height: 50px;
   width: 150px;
-  margin-left: auto;
 }
 
 .profile__title {
@@ -30,6 +30,7 @@
   font-weight: 500;
   grid-area: title;
   margin: 0;
+  padding: 0;
 }
 
 .profile__description {
@@ -47,4 +48,26 @@
   object-fit: cover;
   background-position: center;
   margin-right: 24px;
+}
+
+@media screen and (max-width: 480px) {
+  .profile {
+    background-color: pink;
+    flex-direction: column;
+  }
+
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .profile__description {
+    width: 100%;
+    text-align: center;
+  }
+  .profile__add-button {
+    margin: 0;
+    width: 480px;
+  }
 }
