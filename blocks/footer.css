@@ -3,6 +3,7 @@
 }
 
 .footer__copyright {
-  margin: 0;
+  display: flex;
   color: #545454;
+  margin: 0;
 }
