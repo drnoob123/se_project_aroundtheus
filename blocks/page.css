@@ -49,16 +49,13 @@
     height: 50px;
     margin: 0;
   }
-  
-  .footer{
-    
-  }
+
   .footer__copyright {
     display: flex;
     justify-content: left;
     padding: 0 0 36px 19px;
   }
-
+}
 @media screen and (min-width: 481px) {
   .profile__add-button {
     height: 50px;
