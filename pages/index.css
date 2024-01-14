@@ -5,3 +5,6 @@
 @import url(../blocks/cards.css);
 @import url(../blocks/footer.css);
 @import url(../blocks/card.css);
+* {
+  outline: 1px solid red;
+}
