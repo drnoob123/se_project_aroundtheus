@@ -55,10 +55,3 @@
   opacity: 0.6;
   cursor: pointer;
 }
-
-@media screen and (min-width: 320px) {
-  .card__list {
-    margin: 0;
-    max-width: 100%;
-  }
-}

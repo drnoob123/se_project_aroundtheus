@@ -5,6 +5,11 @@
 @import url(../blocks/cards.css);
 @import url(../blocks/footer.css);
 @import url(../blocks/card.css);
+@import url(../blocks/content.css);
 * {
   outline: 1px solid red;
+}
+
+.content {
+  width: 100vw;
 }
