@@ -19,6 +19,9 @@
 }
 
 @media screen and (max-width: 1280px) {
+  .page {
+    width: 100%;
+  }
   .page__section {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -31,9 +34,15 @@
     margin: 0 auto;
     padding: 0;
   }
+
+  .page__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 880px) {
   .page__content {
     margin: 0 auto;
     padding: 0;

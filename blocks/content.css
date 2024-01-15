@@ -1,8 +1,7 @@
 .content {
+  margin: 0;
   width: 100%;
-  display: flex;
   align-items: center;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 200px 0 200px;
 }
