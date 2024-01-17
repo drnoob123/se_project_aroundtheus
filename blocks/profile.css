@@ -22,7 +22,7 @@
   width: 24px;
   margin: auto 10px;
   grid-area: button;
-  border-color: white;
+  border-color: 1px solid white;
 }
 
 .profile__edit-button:hover {
@@ -34,7 +34,7 @@
   background: transparent url(../images/add-button.svg) center no-repeat;
   height: 50px;
   width: 150px;
-  border-color: white;
+  border-color: 2px solid white;
 }
 
 .profile__add-button:hover {
@@ -49,6 +49,10 @@
   grid-area: title;
   margin: 0;
   padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .profile__description {
@@ -63,6 +67,10 @@
   line-height: 22px;
   letter-spacing: 0em;
   text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .profile__image {
@@ -84,7 +92,7 @@
   }
 
   .profile__info {
-    width: 1fr;
+    width: 100%;
   }
 
   .profile__edit-button {
@@ -102,7 +110,7 @@
   .profile {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     flex-wrap: wrap;
   }
 
