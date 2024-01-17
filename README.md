@@ -50,3 +50,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 **GITHUB PAGES URL**
 https://drnoob123.github.io/se_project_aroundtheus/
+
+**Video URL**
+https://drive.google.com/file/d/1TNJG7FCpRDUqHi3vGjO_EQAHqlU_1nPW/view?usp=sharing
