@@ -14,12 +14,18 @@
   text-align: left;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1280px) {
+  .footer__copyright {
+    margin: 0;
+    padding: 0 0 60px;
+  }
+}
+@media screen and (max-width: 320px) {
   .footer {
-    padding: 0 0 65px 19px;
+    padding: 0 19px 36px;
   }
   .footer__copyright {
-    padding: 0 0 36px 0;
+    padding: 0;
     width: 100%;
   }
 }
