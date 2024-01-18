@@ -22,7 +22,7 @@
   width: 24px;
   margin: auto 10px;
   grid-area: button;
-  border-color: 1px solid white;
+  border: 1px solid white;
 }
 
 .profile__edit-button:hover {
@@ -34,7 +34,7 @@
   background: transparent url(../images/add-button.svg) center no-repeat;
   height: 50px;
   width: 150px;
-  border-color: 2px solid white;
+  border: 2px solid white;
 }
 
 .profile__add-button:hover {

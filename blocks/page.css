@@ -33,11 +33,7 @@
   .page__content {
     margin: 0 auto;
     padding: 0;
-  }
-
-  .page__content {
     align-items: center;
-    display: flex;
     flex-direction: column;
   }
 }
