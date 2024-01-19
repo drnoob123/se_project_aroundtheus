@@ -3,7 +3,6 @@
 }
 
 .cards__list {
-  height: 742px;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);
@@ -11,4 +10,14 @@
   padding: 51px 0 67px;
   margin: 0;
   list-style-type: none;
+}
+
+@media screen and (max-width: 800px) {
+  .cards__list {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .cards__list {
+  }
 }
