@@ -49,7 +49,7 @@
   cursor: pointer;
 }
 
-@media and screen (max-width: 320px) {
+@media screen and (max-width: 320px) {
   .card {
     width: 100%;
   }

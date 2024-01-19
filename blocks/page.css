@@ -7,10 +7,10 @@
 .page__section {
   max-width: 882px;
   width: 100%;
-  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
+  box-sizing: border-box;
 }
 
 .page__content {
@@ -23,7 +23,6 @@
     width: 100%;
   }
   .page__section {
-    box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding: 0;
@@ -42,7 +41,6 @@
     width: 100%;
   }
   .page__section {
-    box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding: 0;
