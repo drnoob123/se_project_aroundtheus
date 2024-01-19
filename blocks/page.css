@@ -2,10 +2,12 @@
   font-family: "Inter", "Arial", sans-serif;
   background-color: black;
   color: white;
+  padding: 0 200px;
+  max-width: 1280px;
 }
 
 .page__section {
-  max-width: 882px;
+  max-width: 880px;
   width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,9 +21,6 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .page {
-    width: 100%;
-  }
   .page__section {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -30,15 +29,14 @@
   }
 
   .page__content {
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
-    align-items: center;
-    flex-direction: column;
+    max-width: 880px;
   }
 }
 @media screen and (max-width: 1280px) {
   .page {
-    width: 100%;
+    max-width: 1280px;
   }
   .page__section {
     -webkit-font-smoothing: antialiased;
