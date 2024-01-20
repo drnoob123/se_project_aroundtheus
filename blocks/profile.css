@@ -191,6 +191,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0 0 14px;
+    font-size: 22px;
   }
 
   .profile__description {
