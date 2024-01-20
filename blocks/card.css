@@ -5,6 +5,7 @@
   color: black;
   border-radius: 10px;
   max-width: 282px;
+  overflow: hidden;
 }
 
 .card__image {
@@ -49,30 +50,4 @@
 .card__like-button:hover {
   opacity: 0.6;
   cursor: pointer;
-}
-
-@media screen and (max-width: 320px) {
-  .card {
-    width: 100%;
-  }
-
-  .card__image {
-    width: 100%;
-  }
-
-  .card__description {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-family: "Inter", "Arial", sans-serif;
-    font-size: 24px;
-    font-weight: 900;
-    line-height: 29px;
-    letter-spacing: 0em;
-    margin: 0;
-  }
-
-  .card__like-button {
-    width: 39px;
-  }
 }
