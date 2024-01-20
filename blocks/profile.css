@@ -124,7 +124,7 @@
   .profile {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     flex-wrap: wrap;
   }
   .profile__image {
@@ -153,6 +153,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 14px 0;
+    align-items: center;
   }
   .profile__add-button {
     max-width: 282px;
