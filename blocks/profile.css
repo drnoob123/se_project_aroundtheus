@@ -160,6 +160,11 @@
     height: 50px;
     margin: 0;
   }
+
+  .profile__edit-button{
+    width:24px;
+    height:24px;
+  }
 }
 @media screen and (max-width: 320px) {
   .profile {
@@ -198,12 +203,5 @@
     margin: 0;
   }
 
-  .profile__edit-button {
-  background: transparent url(../images/edit-button.svg) center no-repeat;
-  height: 24px;
-  width: 24px;
-  margin: auto 10px;
-  grid-area: button;
-  border: 1px solid white;
-}
+ 
 }
