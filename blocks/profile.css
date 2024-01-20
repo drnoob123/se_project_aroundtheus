@@ -132,6 +132,7 @@
   }
 
   .profile__title {
+    font-size: 22px;
     width: calc(100%-40px);
     display: block;
     overflow: hidden;
