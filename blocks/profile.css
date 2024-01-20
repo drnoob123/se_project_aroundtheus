@@ -52,7 +52,6 @@
   grid-area: title;
   margin: 0;
   padding: 0;
-
   max-width: 100%;
 }
 
@@ -129,6 +128,8 @@
   }
   .profile__image {
     margin: 0;
+    padding:0;
+    width:124px;
   }
 
   .profile__title {
