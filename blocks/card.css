@@ -4,15 +4,17 @@
   list-style: none;
   color: black;
   border-radius: 10px;
+  max-width: 282px;
 }
 
 .card__image {
   object-fit: cover;
-  width: 282px;
+  max-width: 282px;
   height: 282px;
 }
 
 .card__description {
+  max-width: 282px;
   font-size: 12px;
   background-color: white;
   display: flex;
@@ -33,6 +35,7 @@
   line-height: 29px;
   letter-spacing: 0em;
   margin: 0;
+  max-width: 282px;
 }
 
 .card__like-button {
