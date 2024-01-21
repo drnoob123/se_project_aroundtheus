@@ -12,3 +12,9 @@
   list-style-type: none;
   max-width: 880px;
 }
+
+@media screen and (max-width: 800px) {
+  .cards__list {
+    padding: 0 0 48px;
+  }
+}
