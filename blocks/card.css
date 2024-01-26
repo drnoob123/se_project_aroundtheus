@@ -51,3 +51,7 @@
   opacity: 0.6;
   cursor: pointer;
 }
+
+.card__like-button:active {
+  background: red;
+}
