@@ -124,7 +124,7 @@ html {
   }
   
   legend {
-    ;
+    
     color: inherit;
     display: table;
     max-width: 100%;
@@ -142,7 +142,7 @@ html {
   
   [type="checkbox"],
   [type="radio"] {
-    ;
+    
     padding: 0;
   }
   
