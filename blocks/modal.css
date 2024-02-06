@@ -35,16 +35,15 @@
 
 .modal__close-button {
   content: url(../images/modal-close.svg);
-  color: #fff;
   position: absolute;
-  top: 280px;
-  right: 480px;
+  top: calc(50% - 210px);
+  right: calc(50% - 225px);
   width: 40px;
   height: 40px;
   z-index: 4;
   background: transparent center no-repeat;
-  color: #fff;
-  border-style: none;
+  border: none;
+  rotate: 45deg;
 }
 
 .modal__overlay {
