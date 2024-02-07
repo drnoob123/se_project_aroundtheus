@@ -1,28 +1,28 @@
-//Initial cards 
-const initialCardsData = [
+// Initial cards 
+const initialCards = Array[
   {
-    title: "Yosemite Valley",
-    imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg"
+    name: "Yosemite Valley",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg"
   },
   {
-    title: "Lake Louise",
-    imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg"
+    name: "Lake Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg"
   },
   {
-    title: "Bald Mountains",
-    imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg"
+    name: "Bald Mountains",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg"
   },
   {
-    title: "Latemar",
-    imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg"
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg"
   },
   {
-    title: "Vanoise National Park",
-    imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg"
+    name: "Vanoise National Park",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg"
   },
   {
-    title: "Lago di Braies",
-    imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg"
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg"
   }
 ];
 
@@ -84,15 +84,15 @@ function getCardElement(data) {
   const cardTitle = cardClone.querySelector('.card__info');
   const cardImage = cardClone.querySelector('.card__image');
 
-  cardTitle.textContent = data.title;
-  cardImage.src = data.imagePath;
-  cardImage.alt = data.title;
+  cardTitle.textContent = data.name;
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
 
   return cardClone;
 }
 
-// Iterate over the initialCardsData and add card elements to the page
-initialCardsData.forEach(cardData => {
+// Iterate over the initialCards and add card elements to the page
+initialCards.forEach(cardData => {
   const cardElement = getCardElement(cardData);
   cardsContainer.appendChild(cardElement);
 });
