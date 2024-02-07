@@ -1,28 +1,28 @@
-//initial cards 
-const initialCards = [
+//Initial cards 
+const initialCardsData = [
   {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg"
+    title: "Yosemite Valley",
+    imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg"
   },
   {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg"
+    title: "Lake Louise",
+    imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg"
   },
   {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg"
+    title: "Bald Mountains",
+    imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg"
   },
   {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg"
+    title: "Latemar",
+    imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg"
   },
   {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg"
+    title: "Vanoise National Park",
+    imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg"
   },
   {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg"
+    title: "Lago di Braies",
+    imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg"
   }
 ];
 
@@ -63,16 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Cards data
-const initialCards = [
-  { title: "Yosemite Valley", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg" },
-  { title: "Lake Louise", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg" },
-  { title: "Bald Mountains", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg" },
-  { title: "Latemar", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg" },
-  { title: "Vanoise National Park", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg" },
-  { title: "Lago di Braies", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg" }
-];
-
 // Get the container for cards
 const cardsContainer = document.querySelector('.cards__list');
 
@@ -101,8 +91,8 @@ function getCardElement(data) {
   return cardClone;
 }
 
-// Iterate over the initialCards and add card elements to the page
-initialCards.forEach(cardData => {
+// Iterate over the initialCardsData and add card elements to the page
+initialCardsData.forEach(cardData => {
   const cardElement = getCardElement(cardData);
   cardsContainer.appendChild(cardElement);
 });
