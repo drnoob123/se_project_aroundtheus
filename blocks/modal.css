@@ -178,3 +178,61 @@
 .modal_open {
   display: block;
 }
+
+@media (max-width: 320px) {
+  .modal__container {
+    width: 282px; /* Adjusted width */
+    height: 322px; /* Adjusted height */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff; /* White background */
+  }
+
+  .modal__overlay {
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0.5;
+  }
+
+  .modal_open {
+    display: block;
+  }
+
+  .modal__close-button {
+    right: calc(50px - 13px); /* 26px/2 */
+    top: calc(50% -13.62px); /* 13.62px above modal */
+    width: 26px; /* Adjusted width */
+    height: 26px; /* Adjusted height */
+  }
+
+  .modal__overlay {
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0.5;
+  }
+
+  .modal__submit-button {
+    width: 238px;
+    height: 46px;
+    font-family: "Inter", "Arial", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+
+  .modal__submit-button .save-text {
+    width: 238px;
+    height: 17px;
+    margin-top: 16px;
+  }
+
+  .modal__input {
+    height: 27px;
+    width: 238px;
+  }
+  .modal__submit-button {
+    width: 238px;
+    height: 46px;
+  }
+}
