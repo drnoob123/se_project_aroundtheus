@@ -181,12 +181,12 @@
 
 @media (max-width: 320px) {
   .modal__container {
-    width: 282px; /* Adjusted width */
-    height: 322px; /* Adjusted height */
+    width: 282px;
+    height: 322px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background: #ffffff; /* White background */
+    background: #ffffff;
   }
 
   .modal__overlay {
@@ -199,10 +199,10 @@
   }
 
   .modal__close-button {
-    right: calc(50px - 13px); /* 26px/2 */
-    top: calc(50% -13.62px); /* 13.62px above modal */
-    width: 26px; /* Adjusted width */
-    height: 26px; /* Adjusted height */
+    right: calc(50px - 13px);
+    top: calc(50% -13.62px);
+    width: 26px;
+    height: 26px;
   }
 
   .modal__overlay {

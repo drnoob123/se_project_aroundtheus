@@ -1,3 +1,31 @@
+//initial cards 
+const initialCards = [
+  {
+    name: "Yosemite Valley",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg"
+  },
+  {
+    name: "Lake Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg"
+  },
+  {
+    name: "Bald Mountains",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg"
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg"
+  },
+  {
+    name: "Vanoise National Park",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg"
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg"
+  }
+];
+
 document.addEventListener("DOMContentLoaded", function () {
   const editButton = document.querySelector(".profile__edit-button");
   const modal = document.querySelector(".modal");
@@ -33,48 +61,48 @@ document.addEventListener("DOMContentLoaded", function () {
       // Close modal
       modal.classList.remove('modal_open');
   });
+});
 
-  // Cards data
-  const initialCards = [
-      { title: "Yosemite Valley", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg" },
-      { title: "Lake Louise", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg" },
-      { title: "Bald Mountains", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg" },
-      { title: "Latemar", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg" },
-      { title: "Vanoise National Park", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg" },
-      { title: "Lago di Braies", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg" }
-  ];
+// Cards data
+const initialCards = [
+  { title: "Yosemite Valley", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg" },
+  { title: "Lake Louise", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg" },
+  { title: "Bald Mountains", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg" },
+  { title: "Latemar", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg" },
+  { title: "Vanoise National Park", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg" },
+  { title: "Lago di Braies", imagePath: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg" }
+];
 
-  // Get the container for cards
-  const cardsContainer = document.querySelector('.cards__list');
+// Get the container for cards
+const cardsContainer = document.querySelector('.cards__list');
 
-  // Get the template element from the DOM
-  const cardTemplate = document.createElement('template');
-  cardTemplate.innerHTML = `
-      <li class="card">
-          <img src="" class="card__image" alt="" />
-          <div class="card__description">
-              <h2 class="card__info"></h2>
-              <button class="card__like-button" type="button"></button>
-          </div>
-      </li>
-  `;
+// Get the template element from the DOM
+const cardTemplate = document.createElement('template');
+cardTemplate.innerHTML = `
+  <li class="card">
+      <img src="" class="card__image" alt="" />
+      <div class="card__description">
+          <h2 class="card__info"></h2>
+          <button class="card__like-button" type="button"></button>
+      </div>
+  </li>
+`;
 
-  // Define getCardElement function
-  function getCardElement(data) {
-      const cardClone = cardTemplate.content.cloneNode(true);
-      const cardTitle = cardClone.querySelector('.card__info');
-      const cardImage = cardClone.querySelector('.card__image');
+// Define getCardElement function
+function getCardElement(data) {
+  const cardClone = cardTemplate.content.cloneNode(true);
+  const cardTitle = cardClone.querySelector('.card__info');
+  const cardImage = cardClone.querySelector('.card__image');
 
-      cardTitle.textContent = data.title;
-      cardImage.src = data.imagePath;
-      cardImage.alt = data.title;
+  cardTitle.textContent = data.title;
+  cardImage.src = data.imagePath;
+  cardImage.alt = data.title;
 
-      return cardClone;
-  }
+  return cardClone;
+}
 
-  // Iterate over the initialCards and add card elements to the page
-  initialCards.forEach(cardData => {
-      const cardElement = getCardElement(cardData);
-      cardsContainer.appendChild(cardElement);
-  });
+// Iterate over the initialCards and add card elements to the page
+initialCards.forEach(cardData => {
+  const cardElement = getCardElement(cardData);
+  cardsContainer.appendChild(cardElement);
 });
