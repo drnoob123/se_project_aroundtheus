@@ -179,58 +179,26 @@
   display: block;
 }
 
-@media (max-width: 320px) {
+@media screen and (max-width: 320px) {
   .modal__container {
     width: 282px;
     height: 322px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background: #ffffff;
-  }
-
-  .modal__overlay {
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0.5;
-  }
-
-  .modal_open {
-    display: block;
   }
 
   .modal__close-button {
     right: calc(50px - 13px);
-    top: calc(50% -13.62px);
     width: 26px;
     height: 26px;
   }
 
-  .modal__overlay {
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0.5;
-  }
-
-  .modal__submit-button {
-    width: 238px;
-    height: 46px;
-    font-family: "Inter", "Arial", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 17px;
-    letter-spacing: 0em;
-    text-align: center;
-  }
-
-  .modal__submit-button .save-text {
-    width: 238px;
-    height: 17px;
-    margin-top: 16px;
+  .modal__title {
+    font-size: 18px;
   }
 
   .modal__input {
-    height: 27px;
-    width: 238px;
+    border: none;
   }
+
   .modal__submit-button {
     width: 238px;
     height: 46px;
