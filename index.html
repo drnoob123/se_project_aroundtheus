@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-    />
-    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
-    <title>Around The U.S</title>
-    <link rel="stylesheet" href="./pages/index.css" />
+    <head>
+    <meta charset="UTF-8"/>
+    <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta content="ie-edge" http-equiv="X-UA-Compatible" />
+    <title>Around the U.S</title>
+    <link rel="stylesheet" href="./pages/index.css"/>
   </head>
   <body class="page">
     <div class="page__content">
@@ -20,7 +20,7 @@
         />
       </header>
       <main class="content">
-        <div class="modal">
+        <div class="modal" id="edit-modal">
           <button class="modal__close-button"></button>
           <div class="modal__overlay"></div>
           <div class="modal__container">
@@ -37,6 +37,34 @@
             </form>
           </div>
         </div>
+
+        <!-- add modal-->
+        <div class="modal">
+          <button class="modal__close-button"></button>
+          <div class="modal__overlay"></div>
+          <div class="modal__container">
+            <h2 class="modal__title">New Place</h2>
+            <form class="modal__form" id="add-card-form">
+              <input type="text" id="name" name="name" class="modal__input_type_title" />
+              <input
+                type="text"
+                id="description"
+                name="title"
+                class="modal__input"
+                placeholder="Title"
+              />
+              <input
+              type="text"
+              id="description"
+              name="url"
+              class="modal__input_type_url"
+              placeholder="Image URL"
+            />
+              <button type="submit" class="modal__submit-button">Save</button>
+            </form>
+          </div>
+        </div>
+
         <section class="profile page__section">
           <img
             src="./images/jacques-cousteau.jpg"

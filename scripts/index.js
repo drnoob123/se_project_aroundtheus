@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const editButton = document.querySelector(".profile__edit-button");
-  const modal = document.querySelector(".modal");
+  const editProfileModal = document.querySelector("#edit-modal");
   const closeButton = document.querySelector(".modal__close-button");
   const nameField = document.querySelector("#name");
   const descriptionField = document.querySelector("#description");
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Open modal on "Edit" button click
   editButton.addEventListener("click", function () {
-      modal.classList.add("modal_open");
+    editProfileModal.classList.add("modal_open");
 
       // Populate fields with current values
       nameField.value = profileTitle.textContent.trim();
@@ -66,13 +66,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Close modal on close button click
   closeButton.addEventListener("click", function () {
-      modal.classList.remove("modal_open");
+    editProfileModal.classList.remove("modal_open");
   });
 
   // Close modal when clicking outside of it
   modal.addEventListener("click", function (event) {
       if (event.target === modal) {
-          modal.classList.remove("modal_open");
+        editProfileModal.classList.remove("modal_open");
       }
   });
 
@@ -85,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
       profileDescription.textContent = descriptionField.value;
 
       // Close modal
-      modal.classList.remove('modal_open');
+      editProfileModal.classList.remove('modal_open');
+        
   });
 });
