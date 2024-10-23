@@ -39,20 +39,13 @@
         </div>
 
         <!-- add modal-->
-        <div class="modal">
+        <div class="modal" id = "add-modal">
           <button class="modal__close-button"></button>
           <div class="modal__overlay"></div>
           <div class="modal__container">
             <h2 class="modal__title">New Place</h2>
             <form class="modal__form" id="add-card-form">
-              <input type="text" id="name" name="name" class="modal__input_type_title" />
-              <input
-                type="text"
-                id="description"
-                name="title"
-                class="modal__input"
-                placeholder="Title"
-              />
+              <input type="text" id="name" name="name" class="modal__input_type_title" placeholder="Title" />
               <input
               type="text"
               id="description"
@@ -81,15 +74,28 @@
         <section class="cards page__section">
           <template id="card-template">
             <li class="card">
+              <div>
+                <button class="card__delete-button" type="button"></button>
+              </div>
               <img src="" class="card__image" alt="" />
+              </button>
               <div class="card__description">
                 <h2 class="card__info"></h2>
                 <button class="card__like-button" type="button"></button>
               </div>
             </li>
           </template>
+          <!-- Image View Modal -->
+<div class="modal" id="image-modal">
+  <button class="modal__close-button" id="image-modal-close"></button>
+  <div class="modal__overlay"></div>
+  <div class="modal__container">
+    <img id="modal-image" src="" alt="" class="modal__image" style="width: 100%; height: auto;" />
+  </div>
+</div>
+
           <ul id="cardsList" class="cards__list"></ul>
-        </section>
+        </section>  
       </main>
       <footer class="footer page__section">
         <p class="footer__copyright">© 2024 Cory Liggins</p>

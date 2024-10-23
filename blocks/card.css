@@ -12,6 +12,7 @@
   object-fit: cover;
   max-width: 282px;
   height: 282px;
+  border-radius: 10px;
 }
 
 .card__description {
@@ -50,4 +51,15 @@
 .card__like-button:hover {
   opacity: 0.6;
   cursor: pointer;
+}
+
+.card__delete-button {
+  border: none;
+  cursor: pointer;
+  background: transparent url(../images/card-images/trash.svg) center no-repeat;
+  width: 18px;
+  height: 40px;
+  position: relative;
+  left: 250px;
+  top: 50px;
 }
