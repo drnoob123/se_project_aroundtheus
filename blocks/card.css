@@ -47,16 +47,14 @@
   width: 39px;
   border-style: none;
 }
-
-/* Liked state for like button */
-.card__like-button.liked {
-  background-image: url("../images/card-images/like-button-after.svg");
-}
-
 .card__like-button:hover {
   opacity: 0.6;
   cursor: pointer;
 }
+.card__like-button_active {
+  background-image: url("../images/card-images/like-button-after.svg");
+}
+
 .card__delete-button {
   border: none;
   cursor: pointer;

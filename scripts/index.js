@@ -87,12 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
     cardImage.addEventListener("click", () => openImagePreviewModal(data.link, data.name));
     deleteButton.addEventListener("click", () => deleteButton.closest(".card").remove());
 
-    // Toggle like button
+    // Toggle like button with BEM modifier
     likeButton.addEventListener("click", () => {
-      likeButton.classList.toggle("liked");
-      likeButton.src = likeButton.classList.contains("liked")
-        ? "../images/card-images/like-button-after.svg"
-        : "../images/Vector.svg";
+      likeButton.classList.toggle("card__like-button_active");
     });
 
     return cardClone;
