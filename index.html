@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <head>
-    <meta charset="UTF-8"/>
-    <meta 
-    name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+    />
     <meta content="ie-edge" http-equiv="X-UA-Compatible" />
     <title>Around the U.S</title>
-    <link rel="stylesheet" href="./pages/index.css"/>
+    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body class="page">
     <div class="page__content">
@@ -26,31 +26,45 @@
           <div class="modal__container">
             <h2 class="modal__title">Edit profile</h2>
             <form class="modal__form">
-              <input type="text" id="name" name="name" class="modal__input" />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="modal__input"
+                placeholder="Name"
+              />
               <input
                 type="text"
                 id="description"
                 name="description"
                 class="modal__input"
+                placeholder="Description"
               />
               <button type="submit" class="modal__submit-button">Save</button>
             </form>
           </div>
         </div>
-        <div class="modal" id = "add-modal">
+
+        <div class="modal" id="add-modal">
           <button class="modal__close-button"></button>
           <div class="modal__overlay"></div>
           <div class="modal__container">
             <h2 class="modal__title">New Place</h2>
             <form class="modal__form" id="add-card-form">
-              <input type="text" id="name" name="name" class="modal__input_type_title" placeholder="Title" />
               <input
-              type="text"
-              id="description"
-              name="url"
-              class="modal__input_type_url"
-              placeholder="Image URL"
-            />
+                type="text"
+                id="title"
+                name="name"
+                class="modal__input modal__input_type_title"
+                placeholder="Title"
+              />
+              <input
+                type="text"
+                id="url"
+                name="url"
+                class="modal__input modal__input_type_url"
+                placeholder="Image URL"
+              />
               <button type="submit" class="modal__submit-button">Save</button>
             </form>
           </div>
@@ -63,36 +77,45 @@
             class="profile__image"
           />
           <div class="profile__info">
-            <h1 class="profile__title">Jacques&nbsp;Cousteau</h1>
+            <h1 class="profile__title">Jacques Cousteau</h1>
             <button class="profile__edit-button" type="button"></button>
             <p class="profile__description">Explorer</p>
           </div>
           <button class="profile__add-button" type="button"></button>
         </section>
+
         <section class="cards page__section">
           <template id="card-template">
             <li class="card">
-              <div>
+              <div class="card__top">
                 <button class="card__delete-button" type="button"></button>
               </div>
-              <img src="" class="card__image" alt="" />
-              </button>
+              <img src="" class="card__image" alt="Card image" />
               <div class="card__description">
-                <h2 class="card__info"></h2>
+                <h2 class="card__info">Card title</h2>
                 <button class="card__like-button" type="button"></button>
               </div>
             </li>
           </template>
-<div class="modal" id="image-modal">
-  <button class="modal__close-button" id="image-modal-close"></button>
-  <div class="modal__overlay"></div>
-  <div class="modal__container">
-    <img id="modal-image" src="" alt="" class="modal__image" style="width: 100%; height: auto;" />
-  </div>
-</div>
+
+          <div class="modal" id="image-modal">
+            <button class="modal__close-button" id="image-modal-close"></button>
+            <div class="modal__overlay"></div>
+            <div class="modal__container">
+              <img
+                id="modal-image"
+                src=""
+                alt="Enlarged view"
+                class="modal__image"
+                style="width: 100%; height: auto;"
+              />
+            </div>
+          </div>
+
           <ul id="cardsList" class="cards__list"></ul>
-        </section>  
+        </section>
       </main>
+
       <footer class="footer page__section">
         <p class="footer__copyright">© 2024 Cory Liggins</p>
       </footer>
