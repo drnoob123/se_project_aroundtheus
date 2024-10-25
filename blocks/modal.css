@@ -295,13 +295,15 @@
 }
 
 #image-modal .modal__close-button {
-  position: relative;
-  top: 100px;
-  left: 500px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 5;
+  width: 26px;
+
+  height: 26px;
+
+  transform: scale(0.65);
+
+  top: calc(5%);
+
+  right: 204.38px;
 }
 
 #image-modal .modal__close-button img {
