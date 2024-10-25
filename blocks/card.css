@@ -2,66 +2,84 @@
   display: flex;
   flex-direction: column;
   list-style: none;
-  color: black;
-  border-radius: 10px;
-  max-width: 282px;
-  overflow: hidden;
+  position: relative;
+}
+
+.card:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .card__image {
-  object-fit: cover;
-  max-width: 282px;
+  width: 282px;
   height: 282px;
   border-radius: 10px;
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 .card__description {
-  max-width: 282px;
-  font-size: 12px;
-  background-color: white;
   display: flex;
+  position: relative;
+  background-color: white;
   color: black;
-  padding: 25px 20px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
   align-items: center;
   justify-content: space-between;
-  text-align: left;
+  border-radius: 0 0 10px 10px;
 }
 
-.card__info {
+.card__title {
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 0;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  font-family: "Inter", "Arial", sans-serif;
-  font-size: 24px;
-  font-weight: 900;
-  line-height: 29px;
-  letter-spacing: 0em;
-  margin: 0;
-  max-width: 282px;
 }
 
 .card__like-button {
   background: transparent url(../images/Vector.svg) center no-repeat;
-  background-color: white;
+  width: 21px;
   height: 18px;
-  width: 39px;
-  border-style: none;
+  border: none;
+  margin: 0;
+  margin-right: 20px;
+  padding: 0;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
+
+/* Button hover style*/
+
 .card__like-button:hover {
-  opacity: 0.6;
+  transform: scale(1.4);
   cursor: pointer;
 }
+
 .card__like-button_active {
-  background-image: url("../images/card-images/like-button-after.svg");
+  background-image: url(../images/card-images/like-button-after.svg);
 }
 
 .card__delete-button {
-  border: none;
-  cursor: pointer;
-  background: transparent url(../images/card-images/trash.svg) center no-repeat;
+  background: transparent url(../images/Trash.svg) center no-repeat;
+  position: absolute;
+  top: 10px;
+  right: 10px;
   width: 18px;
-  height: 40px;
-  position: relative;
-  left: 250px;
-  top: 50px;
+  height: 21px;
+  border: none;
+  margin: 0;
+  margin-right: 20px;
+  padding: 0;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  cursor: pointer; /* Ensures the cursor changes to a pointer on hover */
+}
+
+.card__delete-button:hover {
+  transform: scale(1.4);
 }

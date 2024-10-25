@@ -1,25 +1,22 @@
 .header {
-  padding: 45px 0 41px;
-  border-bottom: 1px solid rgb(84 84 84 / 0.7);
-  max-width: 880px;
-  min-height: 74px;
+  margin-top: 45px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  padding-bottom: 41px;
+  width: 100%;
 }
 
-.header__logo {
-  width: 173px;
-  height: 33px;
-}
+/* Media queries */
 
-@media screen and (max-width: 320px) {
+/* styles for 375px */
+
+@media (max-width: 375px) {
   .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 28px 0 32px 27px;
+    margin: 0 auto;
+    padding: 0;
   }
-
-  .header__logo {
+  .header__image {
     width: 126px;
     height: 24px;
+    margin: 28px 0 32px 27px;
   }
 }

@@ -1,5 +1,5 @@
 .cards {
-  margin: 0;
+  margin-top: 51px;
 }
 
 .cards__list {
@@ -7,14 +7,15 @@
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);
   grid-gap: 20px 17px;
-  padding: 0 0 67px;
+  padding: 0;
   margin: 0;
-  list-style-type: none;
-  max-width: 880px;
 }
 
-@media screen and (max-width: 800px) {
-  .cards__list {
-    padding: 0 0 48px;
+/**Media queries for all resolutions**/
+
+@media (max-width: 620px) {
+  .cards {
+    margin: 0;
+    margin-top: 36px;
   }
 }

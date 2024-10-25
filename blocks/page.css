@@ -1,22 +1,28 @@
 .page {
-  font-family: "Inter", "Arial", sans-serif;
-  background-color: black;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  background-color: #000000;
   color: white;
-  width: 100%;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .page__section {
+  max-width: 880px;
   width: 100%;
-  -webkit-font-smoothing: antialiased;
   position: relative;
-  box-sizing: border-box;
+  margin: 0 auto;
 }
-
 .page__content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
+  min-height: 100vh;
+}
+
+/* styles for 375px */
+
+@media screen and (max-width: 375px) {
+  .page {
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
