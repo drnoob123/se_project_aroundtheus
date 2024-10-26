@@ -73,7 +73,7 @@
 
 /* Modifier for the close button in the image preview modal */
 .modal__close_image-preview {
-  bottom: calc(100% + 30px);
+  bottom: calc(100% - 20px);
   left: calc(100% - 30px);
 }
 
@@ -146,74 +146,19 @@
   color: #fff;
   width: 100%;
   padding: 10px;
-  margin: 40px;
+  margin: 0;
 }
 
 /*! Media Queries */
 
 @media screen and (max-width: 960px) {
   .modal__close_image-preview {
-    bottom: calc(100%);
+    bottom: calc(100%-20px);
   }
 }
 
 @media screen and (max-width: 820px) {
   .modal__close_image-preview {
-    bottom: calc(100% - 30px);
-  }
-}
-
-@media screen and (max-width: 620px) {
-  .modal__container {
-    width: 282px;
-    height: auto;
-    border-radius: 10px;
-    padding: 25px 22px;
-  }
-
-  .modal__heading {
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 22px;
-    margin-bottom: 75px; /* Reduced margin for better spacing */
-  }
-
-  .modal__save-button {
-    height: 46px;
-    margin-top: 45px;
-  }
-
-  .modal__close {
-    width: 26px;
-    height: 26px;
-    bottom: calc(100% + 10px);
-    left: calc(100% - 40px);
-  }
-
-  /* Adjusting input styles for smaller screens */
-  .modal__input {
-    padding: 8px 10px; /* Adjusted padding for smaller screens */
-    margin-bottom: 15px; /* Reduced space between inputs */
-  }
-
-  /* Targeting the last input element for smaller screens */
-  .modal__input:last-of-type {
-    margin-bottom: 30px; /* Increased bottom margin for the last input */
-  }
-
-  .modal__image-title {
-    color: #fff;
-    width: 80%;
-    padding: 5px;
-    margin-top: 10px;
-    margin-left: 0;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  /* CSS rules for screens 320px wide and above */
-  .modal__close_image-preview {
-    left: calc(100% - 10px);
     bottom: calc(100% - 20px);
   }
 }
