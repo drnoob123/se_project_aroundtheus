@@ -7,101 +7,71 @@ const initialCards = [
   { name: "Lago di Braies", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg" }
 ];
 
-// DOM Elements
-const cardList = document.querySelector(".cards__list");
-const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
-const profileEditButton = document.querySelector("#profile-edit-button");
-const profileEditModal = document.querySelector("#profile-edit-modal");
-const closeEditModalButton = document.querySelector("#profile-modal-close-button");
-const addCardButton = document.querySelector(".profile__add-button");
-const addCardModal = document.querySelector("#add-card-modal");
-const closeAddCardModalButton = document.querySelector("#add-modal-close-button");
-const imageModal = document.querySelector(".modal__type_preview");
-const closeImageModalButton = document.querySelector("#image-modal-close-button");
+const selectors = {
+  cardList: ".cards__list",
+  cardTemplate: "#card-template",
+  profileEditButton: "#profile-edit-button",
+  profileEditModal: "#profile-edit-modal",
+  closeEditModalButton: "#profile-modal-close-button",
+  addCardButton: ".profile__add-button",
+  addCardModal: "#add-card-modal",
+  closeAddCardModalButton: "#add-modal-close-button",
+  imageModal: ".modal__type_preview",
+  closeImageModalButton: "#image-modal-close-button",
+  addCardForm: "form[name='modal-add-form']",
+};
 
-// Functions to open and close modals
-function openPopup(modal) {
-  modal.classList.add("modal_opened");
+const elements = Object.fromEntries(
+  Object.entries(selectors).map(([key, selector]) => [key, document.querySelector(selector)])
+);
+
+function togglePopup(modal, isOpen) {
+  modal.classList.toggle("modal_opened", isOpen);
 }
 
-function closePopup(modal) {
-  modal.classList.remove("modal_opened");
-}
-
-// Card creation function
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardTitle = cardElement.querySelector(".card__title");
+function createCardElement({ name, link }) {
+  const cardElement = elements.cardTemplate.content.firstElementChild.cloneNode(true);
+  cardElement.querySelector(".card__title").textContent = name;
   const cardImage = cardElement.querySelector(".card__image");
+  cardImage.src = link;
+  cardImage.alt = name;
 
-  cardTitle.textContent = cardData.name;
-  cardImage.src = cardData.link;
-  cardImage.alt = cardData.name;
-
-  // Like button functionality
-  const likeButton = cardElement.querySelector(".card__like-button");
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
+  cardElement.querySelector(".card__like-button").addEventListener("click", () => {
+    cardElement.querySelector(".card__like-button").classList.toggle("card__like-button_active");
   });
 
-  // Delete button functionality
-  const deleteButton = cardElement.querySelector(".card__delete-button");
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+  cardElement.querySelector(".card__delete-button").addEventListener("click", () => cardElement.remove());
 
-  // Open image in preview modal
-  const modalImage = imageModal.querySelector(".modal__image");
-  const modalCaption = imageModal.querySelector(".modal__caption");
   cardImage.addEventListener("click", () => {
-    modalImage.src = cardData.link;
-    modalImage.alt = cardData.name;
-    modalCaption.textContent = cardData.name;
-    openPopup(imageModal);
+    elements.imageModal.querySelector(".modal__image").src = link;
+    elements.imageModal.querySelector(".modal__caption").textContent = name;
+    togglePopup(elements.imageModal, true);
   });
 
   return cardElement;
 }
 
-// Function to render initial cards
-function renderInitialCards() {
-  initialCards.forEach((cardData) => {
-    const cardElement = getCardElement(cardData);
-    cardList.append(cardElement);  // Use `append` to render in order
-  });
+function renderCards(cards) {
+  cards.forEach(card => elements.cardList.append(createCardElement(card)));
 }
 
-// Add new card functionality
 function addNewCard(event) {
-  event.preventDefault(); // Prevent the form from submitting
-  const cardNameInput = document.querySelector("#card-name-input");
-  const cardLinkInput = document.querySelector("#card-link-input");
-
-  const newCardData = {
-    name: cardNameInput.value,
-    link: cardLinkInput.value,
+  event.preventDefault();
+  const newCard = {
+    name: document.querySelector("#card-name-input").value,
+    link: document.querySelector("#card-link-input").value,
   };
 
-  // Create and render the new card
-  const newCardElement = getCardElement(newCardData);
-  cardList.prepend(newCardElement); // Prepend to add to the top of the list
-
-  // Reset the form fields and close the modal
-  cardNameInput.value = "";
-  cardLinkInput.value = "";
-  closePopup(addCardModal);
+  elements.cardList.prepend(createCardElement(newCard));
+  elements.addCardModal.querySelector("form").reset();
+  togglePopup(elements.addCardModal, false);
 }
 
-// Open and close modal event listeners
-profileEditButton.addEventListener("click", () => openPopup(profileEditModal));
-closeEditModalButton.addEventListener("click", () => closePopup(profileEditModal));
-addCardButton.addEventListener("click", () => openPopup(addCardModal));
-closeAddCardModalButton.addEventListener("click", () => closePopup(addCardModal));
-closeImageModalButton.addEventListener("click", () => closePopup(imageModal));
+elements.profileEditButton.addEventListener("click", () => togglePopup(elements.profileEditModal, true));
+elements.closeEditModalButton.addEventListener("click", () => togglePopup(elements.profileEditModal, false));
+elements.addCardButton.addEventListener("click", () => togglePopup(elements.addCardModal, true));
+elements.closeAddCardModalButton.addEventListener("click", () => togglePopup(elements.addCardModal, false));
+elements.closeImageModalButton.addEventListener("click", () => togglePopup(elements.imageModal, false));
+elements.addCardForm.addEventListener("submit", addNewCard);
 
-// Event listener for adding a new card
-const addCardForm = document.querySelector("form[name='modal-add-form']");
-addCardForm.addEventListener("submit", addNewCard);
-
-// Initialize cards on page load
-document.addEventListener("DOMContentLoaded", renderInitialCards);
+document.addEventListener("DOMContentLoaded", () => renderCards(initialCards));
