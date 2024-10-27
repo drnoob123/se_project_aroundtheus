@@ -1,4 +1,3 @@
-/* Base modal styling */
 .modal {
   pointer-events: none;
   display: flex;
@@ -21,14 +20,13 @@
   pointer-events: auto;
 }
 
-/* Styles for modal container */
 .modal__container {
   position: relative;
   background-color: #fff;
-  padding: 36px;
-  margin: auto;
-  width: 394px;
-  height: 294px;
+  padding: 36px 36px 0;
+  margin: 0;
+  width: 430px;
+  height: 330px;
   border-radius: 10px;
   box-shadow: none;
   border: none;
@@ -49,27 +47,27 @@
   height: auto;
 }
 
-/* Styles for modal close button */
 .modal__close-button {
   border: none;
   background: url(../images/modal-close.svg) no-repeat center/contain
     transparent;
   position: absolute;
   cursor: pointer;
-  top: 10px;
-  right: 10px;
-  width: 24px;
-  height: 24px;
+  top: -40px;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  z-index: 10;
 }
 
 .modal__close-button:hover {
   opacity: 0.7;
 }
 
-/* Modifier for the close button in the image preview modal */
 .modal__close-button_type_image-preview {
-  top: 20px;
-  right: 20px;
+  background: url(../images/modal-close-mobile.svg) no-repeat center;
+  top: calc(-2.5%);
+  right: calc(1%);
 }
 
 .modal__title {
@@ -88,7 +86,6 @@
   flex-direction: column;
 }
 
-/* Common styles for all modal inputs */
 .modal__input {
   width: 100%;
   padding: 10px;
@@ -102,7 +99,6 @@
   margin-bottom: 48px;
 }
 
-/* Styles for save and create buttons */
 .modal__save-button {
   background-color: #000;
   color: #fff;
@@ -119,11 +115,10 @@
   background-color: #555;
 }
 
-/* Styles for image preview modal */
 .modal__image {
   width: 100%;
-  height: auto;
-  max-height: 100%;
+  max-width: 75vw;
+  max-height: 75vh;
   object-fit: contain;
 }
 
@@ -132,5 +127,16 @@
   width: 100%;
   padding: 10px;
   margin: 0;
-  text-align: center;
+  text-align: left;
+}
+
+@media screen and (max-width: 320px) {
+  .modal__container {
+    width: 282px;
+    height: 322px;
+  }
+  .modal__close-button {
+    background: url(../images/modal-close-mobile.svg) no-repeat center;
+    left: calc(80%);
+  }
 }

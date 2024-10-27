@@ -44,7 +44,7 @@
 .card__like-button {
   background: transparent url(../images/Vector.svg) center no-repeat;
   width: 21px;
-  height: 18px;
+  height: 19px;
   border: none;
   margin: 0;
   margin-right: 20px;
@@ -52,8 +52,6 @@
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
-
-/* Button hover style*/
 
 .card__like-button:hover {
   transform: scale(1.4);
@@ -73,11 +71,10 @@
   height: 19.3px;
   border: none;
   margin: 0;
-
   padding: 0;
   transition: transform 0.3s ease;
   flex-shrink: 0;
-  cursor: pointer; /* Ensures the cursor changes to a pointer on hover */
+  cursor: pointer;
 }
 
 .card__delete-button:hover {

@@ -71,12 +71,37 @@ function renderInitialCards() {
   });
 }
 
+// Add new card functionality
+function addNewCard(event) {
+  event.preventDefault(); // Prevent the form from submitting
+  const cardNameInput = document.querySelector("#card-name-input");
+  const cardLinkInput = document.querySelector("#card-link-input");
+
+  const newCardData = {
+    name: cardNameInput.value,
+    link: cardLinkInput.value,
+  };
+
+  // Create and render the new card
+  const newCardElement = getCardElement(newCardData);
+  cardList.prepend(newCardElement); // Prepend to add to the top of the list
+
+  // Reset the form fields and close the modal
+  cardNameInput.value = "";
+  cardLinkInput.value = "";
+  closePopup(addCardModal);
+}
+
 // Open and close modal event listeners
 profileEditButton.addEventListener("click", () => openPopup(profileEditModal));
 closeEditModalButton.addEventListener("click", () => closePopup(profileEditModal));
 addCardButton.addEventListener("click", () => openPopup(addCardModal));
 closeAddCardModalButton.addEventListener("click", () => closePopup(addCardModal));
 closeImageModalButton.addEventListener("click", () => closePopup(imageModal));
+
+// Event listener for adding a new card
+const addCardForm = document.querySelector("form[name='modal-add-form']");
+addCardForm.addEventListener("submit", addNewCard);
 
 // Initialize cards on page load
 document.addEventListener("DOMContentLoaded", renderInitialCards);
