@@ -21,8 +21,7 @@
   pointer-events: auto;
 }
 
-/*! modal__container styles */
-
+/* modal__container styles */
 .modal__container {
   position: relative;
   background-color: #fff;
@@ -31,29 +30,26 @@
   width: 394px;
   height: 294px;
   border-radius: 10px;
-  box-shadow: none; /* Removes shadow if there is one */
-  border: none; /* Removes border if there is one */
-  /* Other styles for the container */
+  box-shadow: none;
+  border: none;
 }
 
-/* Modifier for the modal container to make it fit the image preview */
 .modal__container_image-preview {
-  margin-bottom: 20px; /* Add more margin at the top as necessary */
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-left: 40px;
-  padding-right: 40px; /* Right padding */
+  padding-right: 40px;
   background-color: transparent;
   max-width: 75vw;
   max-height: 75vh;
-  width: auto; /* Adjust based on content */
-  height: auto; /* Adjust based on content */
+  width: auto;
+  height: auto;
 }
 
-/*! modal__close button styles */
-
+/* modal__close button styles */
 .modal__close {
   border: none;
   background: url(../images/modal-close.svg) no-repeat center/contain
@@ -66,12 +62,10 @@
   height: 40px;
 }
 
-/* Hover effect for the close button */
 .modal__close:hover {
-  opacity: 0.7; /* Adjust the value as needed for desired effect */
+  opacity: 0.7;
 }
 
-/* Modifier for the close button in the image preview modal */
 .modal__close_image-preview {
   bottom: calc(100% - 20px);
   left: calc(100% - 30px);
@@ -81,7 +75,6 @@
   font-size: 24px;
   font-weight: 900;
   line-height: 29px;
-  letter-spacing: 0em;
   text-align: left;
   color: #000;
   margin-bottom: 54px;
@@ -96,21 +89,19 @@
 
 /* Common styles for all modal inputs */
 .modal__input {
-  width: 100%; /* Full width */
-  padding: 10px; /* Adjust padding as needed */
+  width: 100%;
+  padding: 10px;
   margin-bottom: 20px;
-  border: none; /* Border, adjust color as needed */
+  border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 4px; /* Rounded corners, adjust radius as needed */
+  border-radius: 4px;
 }
 
-/* Specific styles for the last input element */
 .modal__input:last-of-type {
   margin-bottom: 48px;
 }
 
-/*! modal__save-button styles */
-
+/* modal__save-button styles */
 .modal__save-button {
   background-color: #000;
   color: #fff;
@@ -131,7 +122,7 @@
   width: 100%;
   height: auto;
   max-height: 100%;
-  object-fit: contain; /* This will ensure that the aspect ratio is maintained */
+  object-fit: contain;
 }
 
 .modal__image-preview {
@@ -149,11 +140,10 @@
   margin: 0;
 }
 
-/*! Media Queries */
-
+/* Media Queries */
 @media screen and (max-width: 960px) {
   .modal__close_image-preview {
-    bottom: calc(100%-20px);
+    bottom: calc(100% - 20px);
   }
 }
 

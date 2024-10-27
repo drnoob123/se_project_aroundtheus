@@ -3,18 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Around the U.S." />
-    <meta name="keywords" content="Fritz's Portfolio" />
-    <meta name="author" content="Fritz Gerald Alexandre" />
+    <meta name="author" content="Cory Liggins" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around the US</title>
     <link rel="stylesheet" href="./pages/index.css" />
   </head>
 
   <body class="page">
-    <div class="page__section page__content">
+    <div class="page__content">
       <header class="header page__section">
         <img
-          class="header__image"
+          class="header__logo"
           src="./images/logo.svg"
           alt="Around the U.S. logo"
         />
@@ -34,7 +33,7 @@
               id="profile-edit-button"
               type="button"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__subtitle">Explorer</p>
           </div>
           <button class="profile__add-button" type="button"></button>
         </section>
@@ -45,45 +44,51 @@
       </main>
 
       <footer class="footer">
-        <p class="footer__copyright">
+        <p class="footer__text">
           &copy; 2024 Cory Liggins
         </p>
       </footer>
     </div>
 
-    <div class="modal" id="profile-edit-modal">
+    <div class="modal modal_type_edit" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close" id="profile-modal-close-button"></button>
-        <p class="modal__heading">Edit Profile</p>
-        <form class="modal__form">
+        <button
+          class="modal__close-button"
+          id="profile-modal-close-button"
+        ></button>
+        <h2 class="modal__title">Edit Profile</h2>
+        <form class="modal__form" name="modal-edit-form">
           <input
             type="text"
             id="form-input-title"
-            class="modal__input"
+            class="modal__input modal__input_type_name"
             name="title"
             placeholder="Name"
           />
           <input
             type="text"
             id="form-input-description"
-            class="modal__input"
+            class="modal__input modal__input_type_description"
             name="description"
             placeholder="Description"
           />
-          <button class="modal__save-button">Save</button>
+          <button class="modal__save-button" type="submit">Save</button>
         </form>
       </div>
     </div>
 
-    <div class="modal" id="add-card-modal">
+    <div class="modal modal_type_add" id="add-card-modal">
       <div class="modal__container">
-        <button class="modal__close" id="add-modal-close-button"></button>
-        <h2 class="modal__heading">New Place</h2>
-        <form class="modal__form" id="add-card-form">
+        <button
+          class="modal__close-button"
+          id="add-modal-close-button"
+        ></button>
+        <h2 class="modal__title">New Place</h2>
+        <form class="modal__form" name="modal-add-form">
           <input
             type="text"
             id="card-name-input"
-            class="modal__input"
+            class="modal__input modal__input_type_title"
             name="title"
             placeholder="Title"
             required
@@ -91,7 +96,7 @@
           <input
             type="url"
             id="card-link-input"
-            class="modal__input"
+            class="modal__input modal__input_type_url"
             name="url"
             placeholder="Image URL"
             required
@@ -101,14 +106,14 @@
       </div>
     </div>
 
-    <div class="modal modal__preview">
-      <div class="modal__container modal__container_image-preview">
+    <div class="modal modal__type_preview" id="modal-image">
+      <div class="modal__container modal__container_type_image-preview">
         <button
-          class="modal__close modal__close_image-preview"
+          class="modal__close-button modal__close-button_type_image-preview"
           id="image-modal-close-button"
         ></button>
-        <img src="" alt="" class="modal__image-preview" />
-        <p class="modal__image-title">Image Title Here</p>
+        <img src="" alt="" class="modal__image" />
+        <p class="modal__caption">Image Title Here</p>
       </div>
     </div>
 
@@ -124,7 +129,6 @@
         </div>
       </li>
     </template>
-
     <script src="./scripts/index.js" defer></script>
   </body>
 </html>
