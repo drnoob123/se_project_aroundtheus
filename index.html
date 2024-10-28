@@ -39,7 +39,20 @@
         </section>
 
         <section class="cards">
-          <ul class="cards__list"></ul>
+          <ul class="cards__list">
+            <template id="card-template">
+              <li class="card">
+                <img class="card__image" src="" alt="" />
+                <button class="card__delete-button">
+                  <img src="./images/card-images/trash.svg" alt="Delete" />
+                </button>
+                <div class="card__description">
+                  <h2 class="card__title"></h2>
+                  <button class="card__like-button" type="button"></button>
+                </div>
+              </li>
+            </template>
+          </ul>
         </section>
       </main>
 
@@ -116,19 +129,6 @@
         <p class="modal__caption">Image Title Here</p>
       </div>
     </div>
-
-    <template id="card-template">
-      <li class="card">
-        <img class="card__image" src="" alt="" />
-        <button class="card__delete-button">
-          <img src="./images/card-images/trash.svg" alt="Delete" />
-        </button>
-        <div class="card__description">
-          <h2 class="card__title"></h2>
-          <button class="card__like-button" type="button"></button>
-        </div>
-      </li>
-    </template>
     <script src="./scripts/index.js" defer></script>
   </body>
 </html>

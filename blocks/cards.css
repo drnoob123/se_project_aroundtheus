@@ -1,3 +1,9 @@
+@media screen and (min-width: 1281px) {
+  .cards {
+    width: 882px;
+  }
+}
+
 .cards {
   margin-top: 51px;
 }
@@ -9,12 +15,7 @@
   grid-gap: 20px 17px;
   padding: 0;
   margin: 0;
-  width: 882px;
-  padding-left: calc(25%);
 }
-
-/**Media queries for all resolutions**/
-
 @media (max-width: 620px) {
   .cards {
     margin: 0;

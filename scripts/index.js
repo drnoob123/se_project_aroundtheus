@@ -19,6 +19,9 @@ const selectors = {
   imageModal: ".modal__type_preview",
   closeImageModalButton: "#image-modal-close-button",
   addCardForm: "form[name='modal-add-form']",
+  profileName: ".profile__title",
+  profileDescription: ".profile__subtitle",
+  profileEditForm: "form[name='modal-edit-form']"
 };
 
 const elements = Object.fromEntries(
@@ -67,11 +70,27 @@ function addNewCard(event) {
   togglePopup(elements.addCardModal, false);
 }
 
-elements.profileEditButton.addEventListener("click", () => togglePopup(elements.profileEditModal, true));
+function updateProfileInfo(event) {
+  event.preventDefault();
+  const nameInput = document.querySelector("#form-input-title").value;
+  const descriptionInput = document.querySelector("#form-input-description").value;
+
+  elements.profileName.textContent = nameInput;
+  elements.profileDescription.textContent = descriptionInput;
+  togglePopup(elements.profileEditModal, false);
+}
+
+// Event listeners for modals and forms
+elements.profileEditButton.addEventListener("click", () => {
+  togglePopup(elements.profileEditModal, true);
+  document.querySelector("#form-input-title").value = elements.profileName.textContent;
+  document.querySelector("#form-input-description").value = elements.profileDescription.textContent;
+});
 elements.closeEditModalButton.addEventListener("click", () => togglePopup(elements.profileEditModal, false));
 elements.addCardButton.addEventListener("click", () => togglePopup(elements.addCardModal, true));
 elements.closeAddCardModalButton.addEventListener("click", () => togglePopup(elements.addCardModal, false));
 elements.closeImageModalButton.addEventListener("click", () => togglePopup(elements.imageModal, false));
 elements.addCardForm.addEventListener("submit", addNewCard);
+elements.profileEditForm.addEventListener("submit", updateProfileInfo);
 
 document.addEventListener("DOMContentLoaded", () => renderCards(initialCards));
