@@ -116,8 +116,23 @@
     width: 100%;
     justify-content: center;
     gap: 14px 10px;
+    align-items: center;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 26.63px;
+    text-align: center;
+    margin: 0;
   }
 
+  .profile__subtitle {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: center;
+    padding-left: 20px;
+  }
   .profile__description {
     width: 100%;
     padding-right: 40px;
@@ -144,26 +159,6 @@
 
   .profile__image {
     margin: 0 auto;
-    margin-bottom: 30px;
-  }
-}
-
-/* styles for small smartphones 320px*/
-
-@media (max-width: 320px) {
-  .profile__info {
-    padding-left: 0;
-  }
-
-  .profile__description {
-    padding-right: 0;
-  }
-
-  .profile__add-button {
-    width: 90%;
-  }
-
-  .profile__image {
     margin-bottom: 30px;
   }
 }

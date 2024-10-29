@@ -7,76 +7,72 @@ const initialCards = [
   { name: "Lago di Braies", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg" }
 ];
 
-const selectors = {
-  cardList: ".cards__list",
-  cardTemplate: "#card-template",
-  profileEditButton: "#profile-edit-button",
-  profileEditModal: "#profile-edit-modal",
-  closeEditModalButton: "#profile-modal-close-button",
-  addCardButton: ".profile__add-button",
-  addCardModal: "#add-card-modal",
-  closeAddCardModalButton: "#add-modal-close-button",
-  imageModal: ".modal_type_preview",
-  closeImageModalButton: "#image-modal-close-button",
-  addCardForm: "form[name='modal-add-form']",
-  profileName: ".profile__title",
-  profileDescription: ".profile__subtitle",
-  profileEditForm: "form[name='modal-edit-form']",
-  cardNameInput: "#card-name-input",
-  cardLinkInput: "#card-link-input",
-  profileNameInput: "#form-input-title",
-  profileDescriptionInput: "#form-input-description"
+const elements = {
+  cardList: document.querySelector(".cards__list"),
+  cardTemplate: document.querySelector("#card-template").content.firstElementChild,
+  profileEditButton: document.querySelector("#profile-edit-button"),
+  profileEditModal: document.querySelector("#profile-edit-modal"),
+  closeEditModalButton: document.querySelector("#profile-modal-close-button"),
+  addCardButton: document.querySelector(".profile__add-button"),
+  addCardModal: document.querySelector("#add-card-modal"),
+  closeAddCardModalButton: document.querySelector("#add-modal-close-button"),
+  imageModal: document.querySelector(".modal_type_preview"),
+  closeImageModalButton: document.querySelector("#image-modal-close-button"),
+  addCardForm: document.querySelector("form[name='modal-add-form']"),
+  profileName: document.querySelector(".profile__title"),
+  profileDescription: document.querySelector(".profile__subtitle"),
+  profileEditForm: document.querySelector("form[name='modal-edit-form']"),
+  cardNameInput: document.querySelector("#card-name-input"),
+  cardLinkInput: document.querySelector("#card-link-input"),
+  profileNameInput: document.querySelector("#form-input-title"),
+  profileDescriptionInput: document.querySelector("#form-input-description"),
+  modalImage: document.querySelector(".modal_type_preview .modal__image"),
+  modalCaption: document.querySelector(".modal_type_preview .modal__caption")
 };
-
-const elements = Object.fromEntries(
-  Object.entries(selectors).map(([key, selector]) => [key, document.querySelector(selector)])
-);
 
 function togglePopup(modal, isOpen) {
   modal.classList.toggle("modal_opened", isOpen);
 }
 
 function createCardElement({ name, link }) {
-  const cardElement = elements.cardTemplate.content.firstElementChild.cloneNode(true);
-  cardElement.querySelector(".card__title").textContent = name;
-
+  const cardElement = elements.cardTemplate.cloneNode(true);
+  const cardTitle = cardElement.querySelector(".card__title");
   const cardImage = cardElement.querySelector(".card__image");
-  cardImage.src = link;
-  cardImage.alt = `${name} - Image of ${name}`;  // Provides descriptive alt text for accessibility
-
   const likeButton = cardElement.querySelector(".card__like-button");
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
-
   const deleteButton = cardElement.querySelector(".card__delete-button");
-  deleteButton.addEventListener("click", () => cardElement.remove());
 
+  // Set card details
+  cardTitle.textContent = name;
+  cardImage.src = link;
+  cardImage.alt = `${name} - Image of ${name}`;
+
+  // Event listeners
+  likeButton.addEventListener("click", () => likeButton.classList.toggle("card__like-button_active"));
+  deleteButton.addEventListener("click", () => cardElement.remove());
+  
   cardImage.addEventListener("click", () => {
-    elements.imageModal.querySelector(".modal__image").src = link;
-    elements.imageModal.querySelector(".modal__image").alt = `${name} - Full-size preview of ${name}`;
-    elements.imageModal.querySelector(".modal__caption").textContent = name;
+    elements.modalImage.src = link;
+    elements.modalImage.alt = `${name} - Full-size preview of ${name}`;
+    elements.modalCaption.textContent = name;
     togglePopup(elements.imageModal, true);
   });
 
   return cardElement;
 }
 
-
-
 function renderCards(cards) {
-  cards.forEach(card => elements.cardList.append(createCardElement(card)));
+  const cardElements = cards.map(createCardElement);
+  elements.cardList.append(...cardElements);
 }
 
 function addNewCard(event) {
   event.preventDefault();
   const newCard = {
     name: elements.cardNameInput.value,
-    link: elements.cardLinkInput.value,
+    link: elements.cardLinkInput.value
   };
 
   elements.cardList.prepend(createCardElement(newCard));
-  elements.addCardModal.querySelector("form").reset();
   togglePopup(elements.addCardModal, false);
 }
 
