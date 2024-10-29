@@ -139,9 +139,10 @@
   }
   .modal__form {
     width: 282px;
-    padding-top: 51px;
   }
   .modal__title {
+    padding-top: 44px;
+    padding-bottom: 0;
     font-size: 18px;
     font-weight: 900;
     line-height: 21.78px;
@@ -160,10 +161,12 @@
     margin-left: calc(8%);
     margin-bottom: 25px;
     padding-left: 0px;
+    font-size: 14px;
   }
   .modal__input {
     margin: 0 22px;
-    width: 238px;
+    width: 218px;
+    font-size: 14px;
   }
 
   .modal__close-button {

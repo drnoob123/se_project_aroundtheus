@@ -71,7 +71,7 @@ function addNewCard(event) {
     name: elements.cardNameInput.value,
     link: elements.cardLinkInput.value
   };
-
+  elements.addCardForm.reset();
   elements.cardList.prepend(createCardElement(newCard));
   togglePopup(elements.addCardModal, false);
 }
