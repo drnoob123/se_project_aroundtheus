@@ -38,8 +38,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: 40px;
-  padding-right: 40px;
+
   background-color: transparent;
   max-width: 75vw;
   max-height: 75vh;
@@ -67,7 +66,7 @@
 .modal__close-button_type_image-preview {
   background: url(../images/modal-close.svg) no-repeat center;
   top: calc(-2.5%);
-  right: calc(0.5%);
+  right: calc(-1%);
 }
 
 .modal__title {
