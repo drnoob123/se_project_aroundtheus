@@ -32,6 +32,26 @@ const elements = {
 
 function togglemodal(modal, isOpen) {
   modal.classList.toggle("modal_opened", isOpen);
+  if (isOpen) {
+    document.addEventListener("keydown", handleEscapeClose);
+    modal.addEventListener("mousedown", handleClickOutsideClose);
+  } else {
+    document.removeEventListener("keydown", handleEscapeClose);
+    modal.removeEventListener("mousedown", handleClickOutsideClose);
+  }
+}
+
+function handleEscapeClose(event) {
+  if (event.key === "Escape") {
+    const openModal = document.querySelector(".modal_opened");
+    if (openModal) togglemodal(openModal, false);
+  }
+}
+
+function handleClickOutsideClose(event) {
+  if (event.target.classList.contains("modal_opened")) {
+    togglemodal(event.target, false);
+  }
 }
 
 function createCardElement({ name, link }) {
@@ -41,12 +61,10 @@ function createCardElement({ name, link }) {
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  // Set card details
   cardTitle.textContent = name;
   cardImage.src = link;
   cardImage.alt = `${name} - Image of ${name}`;
 
-  // Event listeners
   likeButton.addEventListener("click", () => likeButton.classList.toggle("card__like-button_active"));
   deleteButton.addEventListener("click", () => cardElement.remove());
   
