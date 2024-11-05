@@ -11,13 +11,13 @@ const elements = {
   cardList: document.querySelector(".cards__list"),
   cardTemplate: document.querySelector("#card-template").content.firstElementChild,
   profileEditButton: document.querySelector("#profile-edit-button"),
-  profileEditModal: document.querySelector("#profile-edit-modal"),
-  closeEditModalButton: document.querySelector("#profile-modal-close-button"),
+  profileEditmodal: document.querySelector("#profile-edit-modal"),
+  closeEditmodalButton: document.querySelector("#profile-modal-close-button"),
   addCardButton: document.querySelector(".profile__add-button"),
-  addCardModal: document.querySelector("#add-card-modal"),
-  closeAddCardModalButton: document.querySelector("#add-modal-close-button"),
-  imageModal: document.querySelector(".modal_type_preview"),
-  closeImageModalButton: document.querySelector("#image-modal-close-button"),
+  addCardmodal: document.querySelector("#add-card-modal"),
+  closeAddCardmodalButton: document.querySelector("#add-modal-close-button"),
+  imagemodal: document.querySelector(".modal_type_preview"),
+  closeImagemodalButton: document.querySelector("#image-modal-close-button"),
   addCardForm: document.querySelector("form[name='modal-add-form']"),
   profileName: document.querySelector(".profile__title"),
   profileDescription: document.querySelector(".profile__subtitle"),
@@ -30,7 +30,7 @@ const elements = {
   modalCaption: document.querySelector(".modal_type_preview .modal__caption")
 };
 
-function togglePopup(modal, isOpen) {
+function togglemodal(modal, isOpen) {
   modal.classList.toggle("modal_opened", isOpen);
 }
 
@@ -54,7 +54,7 @@ function createCardElement({ name, link }) {
     elements.modalImage.src = link;
     elements.modalImage.alt = `${name} - Full-size preview of ${name}`;
     elements.modalCaption.textContent = name;
-    togglePopup(elements.imageModal, true);
+    togglemodal(elements.imagemodal, true);
   });
 
   return cardElement;
@@ -73,26 +73,26 @@ function addNewCard(event) {
   };
   elements.addCardForm.reset();
   elements.cardList.prepend(createCardElement(newCard));
-  togglePopup(elements.addCardModal, false);
+  togglemodal(elements.addCardmodal, false);
 }
 
 function updateProfileInfo(event) {
   event.preventDefault();
   elements.profileName.textContent = elements.profileNameInput.value;
   elements.profileDescription.textContent = elements.profileDescriptionInput.value;
-  togglePopup(elements.profileEditModal, false);
+  togglemodal(elements.profileEditmodal, false);
 }
 
 // Event listeners for modals and forms
 elements.profileEditButton.addEventListener("click", () => {
-  togglePopup(elements.profileEditModal, true);
+  togglemodal(elements.profileEditmodal, true);
   elements.profileNameInput.value = elements.profileName.textContent;
   elements.profileDescriptionInput.value = elements.profileDescription.textContent;
 });
-elements.closeEditModalButton.addEventListener("click", () => togglePopup(elements.profileEditModal, false));
-elements.addCardButton.addEventListener("click", () => togglePopup(elements.addCardModal, true));
-elements.closeAddCardModalButton.addEventListener("click", () => togglePopup(elements.addCardModal, false));
-elements.closeImageModalButton.addEventListener("click", () => togglePopup(elements.imageModal, false));
+elements.closeEditmodalButton.addEventListener("click", () => togglemodal(elements.profileEditmodal, false));
+elements.addCardButton.addEventListener("click", () => togglemodal(elements.addCardmodal, true));
+elements.closeAddCardmodalButton.addEventListener("click", () => togglemodal(elements.addCardmodal, false));
+elements.closeImagemodalButton.addEventListener("click", () => togglemodal(elements.imagemodal, false));
 elements.addCardForm.addEventListener("submit", addNewCard);
 elements.profileEditForm.addEventListener("submit", updateProfileInfo);
 
