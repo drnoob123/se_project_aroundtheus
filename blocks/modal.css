@@ -87,14 +87,15 @@
 
 .modal__input {
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
 
 .modal__input:last-of-type {
-  margin-bottom: 48px;
+  margin-bottom: 0;
+  margin-top: 20px;
 }
 
 .modal__save-button {
@@ -107,10 +108,16 @@
   cursor: pointer;
   margin: 0;
   padding: 0;
+  margin-top: 48px;
 }
 
 .modal__save-button:hover {
   background-color: #555;
+}
+
+.modal__save_button_disabled {
+  background-color: #555;
+  cursor: default;
 }
 
 .modal__image {

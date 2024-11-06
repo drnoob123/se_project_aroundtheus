@@ -1,10 +1,16 @@
 function toggleErrorState(formElement, inputElement, { inputErrorClass, errorClass }, showError) {
   const errorMessageElement = formElement.querySelector(`#${inputElement.id}-error`);
-  if (!errorMessageElement) return;
-
+  
+  if (errorMessageElement) {
+    // Toggle error message visibility and content
+    errorMessageElement.textContent = showError ? inputElement.validationMessage : '';
+    errorMessageElement.classList.toggle(errorClass, showError);
+  } else {
+    console.warn(`Error element not found for input: ${inputElement.id}`);
+  }
+  
+  // Toggle input error class
   inputElement.classList.toggle(inputErrorClass, showError);
-  errorMessageElement.textContent = showError ? inputElement.validationMessage : '';
-  errorMessageElement.classList.toggle(errorClass, showError);
 }
 
 function checkInputValidity(formElement, inputElement, options) {
@@ -12,8 +18,6 @@ function checkInputValidity(formElement, inputElement, options) {
 }
 
 function toggleButtonState(inputElements, submitButton, { inactiveButtonClass }) {
-  if (!submitButton) return;
-
   const isFormInvalid = inputElements.some(inputElement => !inputElement.validity.valid);
   submitButton.classList.toggle(inactiveButtonClass, isFormInvalid);
   submitButton.disabled = isFormInvalid;
@@ -24,7 +28,10 @@ function setEventListeners(formElement, options) {
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
   const submitButton = formElement.querySelector(submitButtonSelector);
 
-  if (!submitButton) return;
+  if (!submitButton) {
+    console.warn(`Submit button not found for selector: ${submitButtonSelector}`);
+    return;
+  }
 
   inputElements.forEach(inputElement => {
     inputElement.addEventListener('input', () => {
@@ -42,11 +49,16 @@ function enableValidation(options) {
   });
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  enableValidation(options);
+});
+
+// Updated options to ensure selectors are correct
 const options = {
-  formSelector: "modal__form",
-  inputSelector: "modal__input",
-  submitButtonSelector: "modal__save_button",
-  inactiveButtonClass: "modal__save_button_disabled",
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__save-button", // Fixed class selector
+  inactiveButtonClass: "modal__save_button_disabled", // Ensure this is correct in CSS
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible"
 };

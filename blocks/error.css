@@ -1,4 +1,14 @@
 .modal__error {
-  color: red;
-  font-size: 12;
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+  color: #f00;
+}
+
+.modal__error-message_visible {
+  display: block;
+}
+
+.modal__error_wrapper {
+  padding-top: 55px;
 }
