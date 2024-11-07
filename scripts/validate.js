@@ -58,7 +58,7 @@ const options = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__save-button", // Fixed class selector
-  inactiveButtonClass: "modal__save_button_disabled", // Ensure this is correct in CSS
+  inactiveButtonClass: "modal__save-button_disabled", // Ensure this is correct in CSS
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible"
 };
