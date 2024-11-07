@@ -1,14 +1,27 @@
+.modal__input-container {
+  position: relative;
+  margin-bottom: 24px;
+}
+
 .modal__error {
-  display: block;
-  font-weight: 400;
+  position: absolute;
+  top: 40%;
+  left: 8%;
+  color: red;
   font-size: 12px;
-  color: #f00;
+  visibility: hidden;
+  margin-top: 4px;
 }
 
-.modal__error-message_visible {
-  display: block;
+.modal__error_visible {
+  visibility: visible;
 }
 
-.modal__error_wrapper {
-  padding-top: 55px;
+.modal__error:last-of-type {
+  position: absolute;
+  top: 60%;
+  left: 8%;
+  color: red;
+  font-size: 12px;
+  margin-top: 0;
 }

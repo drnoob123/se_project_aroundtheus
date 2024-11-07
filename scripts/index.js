@@ -30,7 +30,7 @@ const elements = {
   modalCaption: document.querySelector(".modal_type_preview .modal__caption")
 };
 
-function togglemodal(modal, isOpen) {
+function toggleModal(modal, isOpen) {
   modal.classList.toggle("modal_opened", isOpen);
   if (isOpen) {
     document.addEventListener("keydown", handleEscapeClose);
@@ -44,13 +44,13 @@ function togglemodal(modal, isOpen) {
 function handleEscapeClose(event) {
   if (event.key === "Escape") {
     const openModal = document.querySelector(".modal_opened");
-    if (openModal) togglemodal(openModal, false);
+    if (openModal) toggleModal(openModal, false);
   }
 }
 
 function handleClickOutsideClose(event) {
   if (event.target.classList.contains("modal_opened")) {
-    togglemodal(event.target, false);
+    toggleModal(event.target, false);
   }
 }
 
@@ -72,7 +72,7 @@ function createCardElement({ name, link }) {
     elements.modalImage.src = link;
     elements.modalImage.alt = `${name} - Full-size preview of ${name}`;
     elements.modalCaption.textContent = name;
-    togglemodal(elements.imagemodal, true);
+    toggleModal(elements.imagemodal, true);
   });
 
   return cardElement;
@@ -91,26 +91,26 @@ function addNewCard(event) {
   };
   elements.addCardForm.reset();
   elements.cardList.prepend(createCardElement(newCard));
-  togglemodal(elements.addCardmodal, false);
+  toggleModal(elements.addCardmodal, false);
 }
 
 function updateProfileInfo(event) {
   event.preventDefault();
   elements.profileName.textContent = elements.profileNameInput.value;
   elements.profileDescription.textContent = elements.profileDescriptionInput.value;
-  togglemodal(elements.profileEditmodal, false);
+  toggleModal(elements.profileEditmodal, false);
 }
 
 // Event listeners for modals and forms
 elements.profileEditButton.addEventListener("click", () => {
-  togglemodal(elements.profileEditmodal, true);
+  toggleModal(elements.profileEditmodal, true);
   elements.profileNameInput.value = elements.profileName.textContent;
   elements.profileDescriptionInput.value = elements.profileDescription.textContent;
 });
-elements.closeEditmodalButton.addEventListener("click", () => togglemodal(elements.profileEditmodal, false));
-elements.addCardButton.addEventListener("click", () => togglemodal(elements.addCardmodal, true));
-elements.closeAddCardmodalButton.addEventListener("click", () => togglemodal(elements.addCardmodal, false));
-elements.closeImagemodalButton.addEventListener("click", () => togglemodal(elements.imagemodal, false));
+elements.closeEditmodalButton.addEventListener("click", () => toggleModal(elements.profileEditmodal, false));
+elements.addCardButton.addEventListener("click", () => toggleModal(elements.addCardmodal, true));
+elements.closeAddCardmodalButton.addEventListener("click", () => toggleModal(elements.addCardmodal, false));
+elements.closeImagemodalButton.addEventListener("click", () => toggleModal(elements.imagemodal, false));
 elements.addCardForm.addEventListener("submit", addNewCard);
 elements.profileEditForm.addEventListener("submit", updateProfileInfo);
 
