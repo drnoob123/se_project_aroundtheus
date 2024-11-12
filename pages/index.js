@@ -132,3 +132,4 @@ elements.profileEditForm.addEventListener("submit", updateProfileInfo); // Handl
 
 // Render the initial cards when the document is fully loaded.
 document.addEventListener("DOMContentLoaded", () => renderCards(initialCards));
+
