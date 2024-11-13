@@ -1,6 +1,5 @@
-import Card from "../components/Card";
-import FormValidator from "../components/formValidator";
 
+// Initial card data
 const initialCards = [
   { name: "Yosemite Valley", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg" },
   { name: "Lake Louise", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg" },
@@ -10,128 +9,116 @@ const initialCards = [
   { name: "Lago di Braies", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg" }
 ];
 
+// Element references
+const cardList = document.querySelector(".cards__list");
+const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
+const profileEditButton = document.querySelector("#profile-edit-button");
+const profileEditModal = document.querySelector("#profile-edit-modal");
+const closeEditModalButton = document.querySelector("#profile-modal-close-button");
+const addCardButton = document.querySelector(".profile__add-button");
+const addCardModal = document.querySelector("#add-card-modal");
+const closeAddCardModalButton = document.querySelector("#add-modal-close-button");
+const imageModal = document.querySelector(".modal_type_preview");
+const closeImageModalButton = document.querySelector("#image-modal-close-button");
+const addCardForm = document.querySelector("form[name='modal-add-form']");
+const profileName = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__subtitle");
+const profileEditForm = document.querySelector("form[name='modal-edit-form']");
+const cardNameInput = document.querySelector("#card-name-input");
+const cardLinkInput = document.querySelector("#card-link-input");
+const profileNameInput = document.querySelector("#form-input-title");
+const profileDescriptionInput = document.querySelector("#form-input-description");
+const modalImage = document.querySelector(".modal_type_preview .modal__image");
+const modalCaption = document.querySelector(".modal_type_preview .modal__caption");
 
-
-// This object collects references to important elements in the HTML, so we can interact with them easily
-const elements = {
-  cardList: document.querySelector(".cards__list"), // The list where all card elements are displayed
-  cardTemplate: document.querySelector("#card-template").content.firstElementChild, // Template used to create each card
-  profileEditButton: document.querySelector("#profile-edit-button"), // Button to open the profile edit modal
-  profileEditmodal: document.querySelector("#profile-edit-modal"), // Profile edit modal (pop-up)
-  closeEditmodalButton: document.querySelector("#profile-modal-close-button"), // Button to close profile edit modal
-  addCardButton: document.querySelector(".profile__add-button"), // Button to open the add card modal
-  addCardmodal: document.querySelector("#add-card-modal"), // Modal for adding a new card
-  closeAddCardmodalButton: document.querySelector("#add-modal-close-button"), // Button to close add card modal
-  imagemodal: document.querySelector(".modal_type_preview"), // Modal for previewing an image
-  closeImagemodalButton: document.querySelector("#image-modal-close-button"), // Button to close the image preview modal
-  addCardForm: document.querySelector("form[name='modal-add-form']"), // Form for adding a new card
-  profileName: document.querySelector(".profile__title"), // Profile name display
-  profileDescription: document.querySelector(".profile__subtitle"), // Profile description display
-  profileEditForm: document.querySelector("form[name='modal-edit-form']"), // Form for editing profile information
-  cardNameInput: document.querySelector("#card-name-input"), // Input for card name in add card form
-  cardLinkInput: document.querySelector("#card-link-input"), // Input for card link in add card form
-  profileNameInput: document.querySelector("#form-input-title"), // Input for profile name in profile edit form
-  profileDescriptionInput: document.querySelector("#form-input-description"), // Input for profile description in profile edit form
-  modalImage: document.querySelector(".modal_type_preview .modal__image"), // Full-size image display in preview modal
-  modalCaption: document.querySelector(".modal_type_preview .modal__caption") // Caption for image in preview modal
-};
-
-// Function to open or close a modal.
-// - `modal`: The modal element to be opened or closed.
-// - `isOpen`: A boolean value where true opens the modal and false closes it.
+// Function to open or close a modal
 function toggleModal(modal, isOpen) {
-  modal.classList.toggle("modal_opened", isOpen); // Toggle the 'modal_opened' class to show or hide the modal
+  modal.classList.toggle("modal_opened", isOpen);
   if (isOpen) {
-    document.addEventListener("keydown", handleEscapeClose); // Listen for "Escape" key press
-    modal.addEventListener("mousedown", handleClickOutsideClose); // Listen for clicks outside the modal
+    document.addEventListener("keydown", handleEscapeClose);
+    modal.addEventListener("mousedown", handleClickOutsideClose);
   } else {
-    document.removeEventListener("keydown", handleEscapeClose); // Stop listening for "Escape" key press
-    modal.removeEventListener("mousedown", handleClickOutsideClose); // Stop listening for outside clicks
+    document.removeEventListener("keydown", handleEscapeClose);
+    modal.removeEventListener("mousedown", handleClickOutsideClose);
   }
 }
 
-// Function to close the modal when "Escape" key is pressed.
 function handleEscapeClose(event) {
-  if (event.key === "Escape") { // Check if the pressed key is "Escape"
-    const openModal = document.querySelector(".modal_opened"); // Find the currently open modal
-    if (openModal) toggleModal(openModal, false); // Close the modal
+  if (event.key === "Escape") {
+    const openModal = document.querySelector(".modal_opened");
+    if (openModal) toggleModal(openModal, false);
   }
 }
 
-// Function to close the modal when clicking outside of it.
 function handleClickOutsideClose(event) {
-  if (event.target.classList.contains("modal_opened")) { // Check if click is outside the modal
-    toggleModal(event.target, false); // Close the modal
+  if (event.target.classList.contains("modal_opened")) {
+    toggleModal(event.target, false);
   }
 }
 
-// Function to create a card element.
-// - `name`: Name of the place for the card
-// - `link`: URL to the image for the card
+// Function to create a card element
 function createCardElement({ name, link }) {
-  const cardElement = elements.cardTemplate.cloneNode(true); // Clone the card template
-  const cardTitle = cardElement.querySelector(".card__title"); // Get the card title element
-  const cardImage = cardElement.querySelector(".card__image"); // Get the card image element
-  const likeButton = cardElement.querySelector(".card__like-button"); // Get the like button
-  const deleteButton = cardElement.querySelector(".card__delete-button"); // Get the delete button
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardTitle = cardElement.querySelector(".card__title");
+  const cardImage = cardElement.querySelector(".card__image");
+  const likeButton = cardElement.querySelector(".card__like-button");
+  const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  cardTitle.textContent = name; // Set the title of the card
-  cardImage.src = link; // Set the image source
-  cardImage.alt = `${name} - Image of ${name}`; // Set the image alt text for accessibility
+  cardTitle.textContent = name;
+  cardImage.src = link;
+  cardImage.alt = `${name} - Image of ${name}`;
 
-  likeButton.addEventListener("click", () => likeButton.classList.toggle("card__like-button_active")); // Toggle like button on click
-  deleteButton.addEventListener("click", () => cardElement.remove()); // Remove the card on delete button click
+  likeButton.addEventListener("click", () => likeButton.classList.toggle("card__like-button_active"));
+  deleteButton.addEventListener("click", () => cardElement.remove());
   
-  cardImage.addEventListener("click", () => { // Open image preview modal on image click
-    elements.modalImage.src = link; // Set image preview source
-    elements.modalImage.alt = `${name} - Full-size preview of ${name}`; // Set alt text for preview
-    elements.modalCaption.textContent = name; // Set caption in preview
-    toggleModal(elements.imagemodal, true); // Open the image preview modal
+  cardImage.addEventListener("click", () => {
+    modalImage.src = link;
+    modalImage.alt = `${name} - Full-size preview of ${name}`;
+    modalCaption.textContent = name;
+    toggleModal(imageModal, true);
   });
 
-  return cardElement; // Return the complete card element
+  return cardElement;
 }
 
-// Function to render all cards in the initial list.
-// - `cards`: Array of card data objects.
+// Function to render all cards in the initial list
 function renderCards(cards) {
-  const cardElements = cards.map(createCardElement); // Create a card element for each item in `cards`
-  elements.cardList.append(...cardElements); // Append all card elements to the card list in the DOM
+  const cardElements = cards.map(createCardElement);
+  cardList.append(...cardElements);
 }
 
-// Function to add a new card to the gallery.
+// Function to add a new card to the gallery
 function addNewCard(event) {
-  event.preventDefault(); // Prevent page reload on form submission
+  event.preventDefault();
   const newCard = {
-    name: elements.cardNameInput.value, // Get the name from the input field
-    link: elements.cardLinkInput.value // Get the link from the input field
+    name: cardNameInput.value,
+    link: cardLinkInput.value
   };
-  elements.addCardForm.reset(); // Clear the form inputs
-  elements.cardList.prepend(createCardElement(newCard)); // Add the new card to the top of the list
-  toggleModal(elements.addCardmodal, false); // Close the add card modal
+  addCardForm.reset();
+  cardList.prepend(createCardElement(newCard));
+  toggleModal(addCardModal, false);
 }
 
-// Function to update the profile information with inputted values.
+// Function to update the profile information with inputted values
 function updateProfileInfo(event) {
-  event.preventDefault(); // Prevent page reload on form submission
-  elements.profileName.textContent = elements.profileNameInput.value; // Update the profile name
-  elements.profileDescription.textContent = elements.profileDescriptionInput.value; // Update the profile description
-  toggleModal(elements.profileEditmodal, false); // Close the profile edit modal
+  event.preventDefault();
+  profileName.textContent = profileNameInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  toggleModal(profileEditModal, false);
 }
 
-// Event listeners to handle opening and closing of modals and form submissions.
-elements.profileEditButton.addEventListener("click", () => {
-  toggleModal(elements.profileEditmodal, true); // Open profile edit modal
-  elements.profileNameInput.value = elements.profileName.textContent; // Fill profile name input with current value
-  elements.profileDescriptionInput.value = elements.profileDescription.textContent; // Fill profile description input with current value
+// Event listeners to handle opening and closing of modals and form submissions
+profileEditButton.addEventListener("click", () => {
+  toggleModal(profileEditModal, true);
+  profileNameInput.value = profileName.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
 });
-elements.closeEditmodalButton.addEventListener("click", () => toggleModal(elements.profileEditmodal, false)); // Close profile edit modal
-elements.addCardButton.addEventListener("click", () => toggleModal(elements.addCardmodal, true)); // Open add card modal
-elements.closeAddCardmodalButton.addEventListener("click", () => toggleModal(elements.addCardmodal, false)); // Close add card modal
-elements.closeImagemodalButton.addEventListener("click", () => toggleModal(elements.imagemodal, false)); // Close image preview modal
-elements.addCardForm.addEventListener("submit", addNewCard); // Handle new card submission
-elements.profileEditForm.addEventListener("submit", updateProfileInfo); // Handle profile information update
+closeEditModalButton.addEventListener("click", () => toggleModal(profileEditModal, false));
+addCardButton.addEventListener("click", () => toggleModal(addCardModal, true));
+closeAddCardModalButton.addEventListener("click", () => toggleModal(addCardModal, false));
+closeImageModalButton.addEventListener("click", () => toggleModal(imageModal, false));
+addCardForm.addEventListener("submit", addNewCard);
+profileEditForm.addEventListener("submit", updateProfileInfo);
 
-// Render the initial cards when the document is fully loaded.
+// Render the initial cards when the document is fully loaded
 document.addEventListener("DOMContentLoaded", () => renderCards(initialCards));
-
