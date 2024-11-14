@@ -51,10 +51,10 @@ const settings = {
   errorClass: "modal__error_visible"
 };
 
-// Instantiate FormValidator objects for each form
-const editFormValidator = new FormValidator(settings, document.querySelector('.edit-form'));
-const addFormValidator = new FormValidator(settings, document.querySelector('.add-form'));
+document.addEventListener('DOMContentLoaded', () => {
+  const editFormValidator = new FormValidator(settings, document.querySelector('form[name="modal-edit-form"]'));
+  const addFormValidator = new FormValidator(settings, document.querySelector('form[name="modal-add-form"]'));
 
-// Enable validation for each form
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();
+  editFormValidator.enableValidation();
+  addFormValidator.enableValidation();
+});
