@@ -1,3 +1,5 @@
+import Card from "../components/Card.js";
+import FormValidator from "../components/formValidator.js";
 
 // Initial card data
 const initialCards = [
@@ -11,7 +13,6 @@ const initialCards = [
 
 // Element references
 const cardList = document.querySelector(".cards__list");
-const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const closeEditModalButton = document.querySelector("#profile-modal-close-button");
@@ -21,11 +22,11 @@ const closeAddCardModalButton = document.querySelector("#add-modal-close-button"
 const imageModal = document.querySelector(".modal_type_preview");
 const closeImageModalButton = document.querySelector("#image-modal-close-button");
 const addCardForm = document.querySelector("form[name='modal-add-form']");
-const profileName = document.querySelector(".profile__title");
-const profileDescription = document.querySelector(".profile__subtitle");
 const profileEditForm = document.querySelector("form[name='modal-edit-form']");
 const cardNameInput = document.querySelector("#card-name-input");
 const cardLinkInput = document.querySelector("#card-link-input");
+const profileName = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__subtitle");
 const profileNameInput = document.querySelector("#form-input-title");
 const profileDescriptionInput = document.querySelector("#form-input-description");
 const modalImage = document.querySelector(".modal_type_preview .modal__image");
@@ -56,46 +57,35 @@ function handleClickOutsideClose(event) {
   }
 }
 
-// Function to create a card element
-function createCardElement({ name, link }) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardTitle = cardElement.querySelector(".card__title");
-  const cardImage = cardElement.querySelector(".card__image");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  const deleteButton = cardElement.querySelector(".card__delete-button");
+// Function to handle card image click, opening the preview modal
+function handleImageClick(name, link) {
+  modalImage.src = link;
+  modalImage.alt = `${name} - Full-size preview of ${name}`;
+  modalCaption.textContent = name;
+  toggleModal(imageModal, true);
+}
 
-  cardTitle.textContent = name;
-  cardImage.src = link;
-  cardImage.alt = `${name} - Image of ${name}`;
-
-  likeButton.addEventListener("click", () => likeButton.classList.toggle("card__like-button_active"));
-  deleteButton.addEventListener("click", () => cardElement.remove());
-  
-  cardImage.addEventListener("click", () => {
-    modalImage.src = link;
-    modalImage.alt = `${name} - Full-size preview of ${name}`;
-    modalCaption.textContent = name;
-    toggleModal(imageModal, true);
-  });
-
-  return cardElement;
+// Function to create a new card instance and render it
+function createCard(data) {
+  const card = new Card(data, "#card-template", handleImageClick);
+  return card.getView();
 }
 
 // Function to render all cards in the initial list
 function renderCards(cards) {
-  const cardElements = cards.map(createCardElement);
-  cardList.append(...cardElements);
+  cards.forEach(cardData => {
+    const cardElement = createCard(cardData);
+    cardList.append(cardElement);
+  });
 }
 
 // Function to add a new card to the gallery
 function addNewCard(event) {
   event.preventDefault();
-  const newCard = {
-    name: cardNameInput.value,
-    link: cardLinkInput.value
-  };
+  const newCard = { name: cardNameInput.value, link: cardLinkInput.value };
+  const cardElement = createCard(newCard);
+  cardList.prepend(cardElement);
   addCardForm.reset();
-  cardList.prepend(createCardElement(newCard));
   toggleModal(addCardModal, false);
 }
 
@@ -122,3 +112,9 @@ profileEditForm.addEventListener("submit", updateProfileInfo);
 
 // Render the initial cards when the document is fully loaded
 document.addEventListener("DOMContentLoaded", () => renderCards(initialCards));
+
+// Initialize form validation
+const addCardFormValidator = new FormValidator(addCardForm);
+const profileEditFormValidator = new FormValidator(profileEditForm);
+addCardFormValidator.enableValidation();
+profileEditFormValidator.enableValidation();

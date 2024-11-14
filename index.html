@@ -43,7 +43,7 @@
             <template id="card-template">
               <li class="card">
                 <img class="card__image" src="" alt="" />
-                <button class="card__delete-button">
+                <button class="card__delete-button" type="button">
                   <img src="./images/card-images/trash.svg" alt="Delete" />
                 </button>
                 <div class="card__description">
@@ -55,6 +55,7 @@
           </ul>
         </section>
       </main>
+
       <footer class="footer">
         <p class="footer__copyright">
           &copy; 2024 Cory Liggins
@@ -62,6 +63,7 @@
       </footer>
     </div>
 
+    <!-- Profile Edit Modal -->
     <div class="modal modal_type_edit" id="profile-edit-modal">
       <div class="modal__container">
         <button
@@ -104,6 +106,7 @@
       </div>
     </div>
 
+    <!-- Add Card Modal -->
     <div class="modal modal_type_add" id="add-card-modal">
       <div class="modal__container">
         <button
@@ -144,6 +147,7 @@
       </div>
     </div>
 
+    <!-- Image Preview Modal -->
     <div class="modal modal_type_preview" id="modal-image">
       <div class="modal__container modal__container_type_image-preview">
         <button
@@ -155,6 +159,7 @@
       </div>
     </div>
   </body>
+
+  <!-- JavaScript files -->
   <script src="./pages/index.js" defer type="module"></script>
-  <script src="components/validate.js" defer type="module"></script>
 </html>
