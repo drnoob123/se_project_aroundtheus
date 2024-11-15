@@ -1,5 +1,5 @@
 import Card from "../components/Card.js";
-import FormValidator from "../components/formValidator.js";
+import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   { name: "Yosemite Valley", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg" },
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cardList.prepend(cardElement);
     addCardForm.reset();
     toggleModal(addCardModal, false);
-    addCardFormValidator._toggleButtonState();
+  
   }
 
   function updateProfileInfo(event) {
@@ -108,12 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleModal(profileEditModal, true);
     profileNameInput.value = profileName.textContent;
     profileDescriptionInput.value = profileDescription.textContent;
-    profileEditFormValidator._toggleButtonState();
+    profileEditFormValidator.toggleButtonState();
   });
   closeEditModalButton.addEventListener("click", () => toggleModal(profileEditModal, false));
   addCardButton.addEventListener("click", () => {
     toggleModal(addCardModal, true);
-    addCardFormValidator._toggleButtonState();
+    addCardFormValidator.toggleButtonState();
   });
   closeAddCardModalButton.addEventListener("click", () => toggleModal(addCardModal, false));
   closeImageModalButton.addEventListener("click", () => toggleModal(imageModal, false));

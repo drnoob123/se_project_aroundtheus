@@ -51,10 +51,3 @@ const settings = {
   errorClass: "modal__error_visible"
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  const editFormValidator = new FormValidator(settings, document.querySelector('form[name="modal-edit-form"]'));
-  const addFormValidator = new FormValidator(settings, document.querySelector('form[name="modal-add-form"]'));
-
-  editFormValidator.enableValidation();
-  addFormValidator.enableValidation();
-});
