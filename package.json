@@ -1,0 +1,12 @@
+{
+  "name": "se_project_aroundtheus",
+  "version": "1.0.0",
+  "description": "Around The U.S. is a web application showcasing beautiful locations in the United States. Users can explore various scenic spots and interact with the content.",
+  "main": "../pages/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": []
+}
