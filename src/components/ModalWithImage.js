@@ -1,4 +1,4 @@
-import Modal from '../components/Modal.js';
+import Modal from './Modal.js';
 
 export default class PopupWithImage extends Modal {
   constructor(modalSelector) {
