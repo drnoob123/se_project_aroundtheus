@@ -2,6 +2,9 @@ export default class FormValidator {
   constructor(settings, formElement) {
     this._settings = settings;
     this._formElement = formElement;
+    if (!this._formElement) {
+      throw new Error("Form element not found. Check the form selector.");
+    }
     this._inputList = Array.from(this._formElement.querySelectorAll(this._settings.inputSelector));
     this._submitButton = this._formElement.querySelector(this._settings.submitButtonSelector);
   }
@@ -40,14 +43,3 @@ export default class FormValidator {
     this.toggleButtonState();
   }
 }
-
-// Define settings for validation
-const settings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__save-button",
-  inactiveButtonClass: "modal__save-button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible"
-};
-

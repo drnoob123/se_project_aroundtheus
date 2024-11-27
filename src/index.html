@@ -6,7 +6,6 @@
     <meta name="author" content="Cory Liggins" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around the US</title>
-    <link rel="stylesheet" href="../src/pages/index.css" />
   </head>
 
   <body class="page">
@@ -14,7 +13,7 @@
       <header class="header page__section">
         <img
           class="header__logo"
-          src="./images/logo.svg"
+          src="../src/images/logo.svg"
           alt="Around the U.S. logo"
         />
       </header>
@@ -35,7 +34,11 @@
             ></button>
             <p class="profile__subtitle">Explorer</p>
           </div>
-          <button class="profile__add-button" type="button"></button>
+          <button
+            class="profile__add-button"
+            id="add-card-button"
+            type="button"
+          ></button>
         </section>
 
         <section class="cards">
@@ -159,7 +162,4 @@
       </div>
     </div>
   </body>
-
-  <!-- JavaScript files -->
-  <script src="../src/pages/index.js" defer type="module"></script>
 </html>
