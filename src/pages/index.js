@@ -68,6 +68,10 @@ function handleDeleteClick(card) {
   });
 }
 
+function handleLikeClick(cardInstance) {
+  cardInstance.toggleLike();
+}
+
 function createCard({ name, link }) {
   const cardElement = new Card(
     { name, link },
@@ -75,7 +79,7 @@ function createCard({ name, link }) {
     "#card-template",
     handleCardClick,
     handleDeleteClick,
-    () => {} // No like functionality for static cards
+    handleLikeClick
   );
   return cardElement.getView();
 }
