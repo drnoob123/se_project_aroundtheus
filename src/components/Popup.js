@@ -1,19 +1,34 @@
 export default class Popup {
-  constructor(popupSelector) {
-    this._popup = document.querySelector(popupSelector); // Assign the DOM element to _popup
+  constructor({ popupSelector }) {
+    this._popupElement = document.querySelector(popupSelector);
+    this._handleEscClose = this._handleEscClose.bind(this);
   }
 
   open() {
-    this._popup.classList.add('modal_opened'); // Add the class to open the modal
+    this._popupElement.classList.add("modal_opened");
+    document.addEventListener("keydown", this._handleEscClose);
   }
 
   close() {
-    this._popup.classList.remove('modal_opened'); // Remove the class to close the modal
+    this._popupElement.classList.remove("modal_opened");
+    document.removeEventListener("keydown", this._handleEscClose);
+  }
+
+  _handleEscClose(e) {
+    if (e.key === "Escape") {
+      this.close();
+    }
   }
 
   setEventListeners() {
-    this._popup.querySelector('.modal__close-button').addEventListener('click', () => {
-      this.close(); // Close the popup when the close button is clicked
+    this._popupElement.addEventListener("mousedown", (evt) => {
+      if (
+        evt.target.classList.contains("modal") ||
+        evt.target.classList.contains("modal__overlay") ||
+        evt.target.classList.contains("modal__close")
+      ) {
+        this.close();
+      }
     });
   }
 }

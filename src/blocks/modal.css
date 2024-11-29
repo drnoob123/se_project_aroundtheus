@@ -1,193 +1,209 @@
 .modal {
-  pointer-events: none;
-  display: flex;
-  visibility: hidden;
-  opacity: 0;
-  align-items: center;
-  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
   background-color: rgba(0, 0, 0, 0.5);
+  padding: 0 19px;
+  display: flex;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: visibility 0s 0.3s, opacity 0.3s linear;
 }
 
 .modal_opened {
   visibility: visible;
   opacity: 1;
-  transition: visibility 0s linear 0s, opacity 0.3s linear;
-  pointer-events: auto;
+  transition: visibility 0.3s, opacity 0.3s linear;
+  pointer-events: all;
 }
 
 .modal__container {
-  position: relative;
   background-color: #fff;
-  padding: 36px 36px 0;
-  margin: 0;
-  width: 430px;
-  height: 330px;
+  margin: auto;
+  padding: 36px;
   border-radius: 10px;
-  box-shadow: none;
-  border: none;
+  position: relative;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  color: #000;
 }
 
-.modal__container_type_image-preview {
-  margin-bottom: 20px;
+.modal__preview-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  row-gap: 10px;
   background-color: transparent;
+  padding: 0;
+  color: #fff;
+}
+
+.modal__preview-image {
   max-width: 75vw;
   max-height: 75vh;
-  width: auto;
-  height: auto;
+  border-radius: 10px 10px 0 0;
 }
 
-.modal__close-button {
+.modal__preview-footer {
+  align-self: flex-start;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  margin: 0 10px 10px;
+}
+
+.modal__close {
+  background-image: url(../images/Close.svg);
   border: none;
-  background: url(../images/modal-close.svg) no-repeat center/contain
-    transparent;
-  position: absolute;
-  cursor: pointer;
-  top: -40px;
-  right: -40px;
+  background-color: transparent;
   width: 40px;
   height: 40px;
-  z-index: 10;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: calc(100% + 5px);
+  cursor: pointer;
+  padding: 0;
+  transition: 0.3s ease-in-out;
 }
 
-.modal__close-button:hover {
-  opacity: 0.7;
+.modal__close:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }
 
-.modal__close-button_type_image-preview {
-  background: url(../images/modal-close.svg) no-repeat center;
-  top: calc(-2.5%);
-  right: calc(-1%);
-}
-
-.modal__title {
-  font-size: 24px;
+.modal__heading {
   font-weight: 900;
+  font-size: 24px;
   line-height: 29px;
-  text-align: left;
-  color: #000;
-  margin-bottom: 24px;
+  margin: 0 0 54px 0;
+}
+
+.modal__heading-confirm {
+  margin-bottom: 20px;
 }
 
 .modal__form {
-  background-color: #fff;
-  border-radius: 8px;
   display: flex;
   flex-direction: column;
+  width: 358px;
+  font-weight: 400;
 }
 
 .modal__input {
-  padding: 10px;
-  margin-bottom: 0;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+  font-size: 14px;
+  line-height: 17px;
+  padding: 0 0 14px 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  width: 100%;
 }
 
-.modal__input:last-of-type {
-  margin-bottom: 0;
-  margin-top: 20px;
+.modal__input_type_error {
+  border-bottom: 1px solid #ff0000;
 }
 
-.modal__save-button {
+.modal__button {
+  font-size: 18px;
+  line-height: 22px;
   background-color: #000;
   color: #fff;
-  max-width: 100%;
-  height: 50.15px;
-  border: none;
   border-radius: 2px;
+  padding: 14px 0 18px 0;
   cursor: pointer;
-  margin: 0;
-  padding: 0;
-  margin-top: 48px;
+  transition: 0.3s ease-in-out;
+  border: none;
 }
 
-.modal__save-button:hover {
-  background-color: #555;
+.modal__button-confirm {
+  width: 358px;
 }
 
-.modal__save-button_disabled {
-  background-color: #fffefe;
-  border: 1px solid #e9e9e9;
+.modal__button:disabled {
+  border: 1px solid #000000;
+  background-color: #ffffff;
+  color: #000000;
+  opacity: 0.2;
+}
+
+.modal__button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.modal__button_disabled:hover {
+  opacity: 0.2;
   cursor: default;
-  color: #c7c7c7;
 }
 
-.modal__image {
-  width: 100%;
-  max-width: 75vw;
-  max-height: 75vh;
-  object-fit: contain;
+.modal__error_visible {
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  left: 0;
+  position: absolute;
+  top: calc(100% + 5px);
+  transition: opacity 0.3s ease;
 }
 
-.modal__caption {
-  color: #fff;
-  width: 100%;
-  padding: 10px;
-  margin: 0;
-  text-align: left;
+.modal__label {
+  position: relative;
+  margin-bottom: 48px;
 }
 
-@media screen and (max-width: 320px) {
-  .modal {
-    padding: 0;
+@media screen and (max-width: 620px) {
+  .modal__close {
+    width: 26px;
+    height: 26px;
+    background-image: url(../images/close_mobile.svg);
+    bottom: calc(100% + 13px);
+    left: calc(100% - 26px);
   }
+
+  #preview-close-button {
+    bottom: calc(100% + 5px);
+    left: calc(100% + 5px);
+  }
+
   .modal__container {
-    width: 282px;
-    height: 322px;
-    padding: 0;
-  }
-  .modal__form {
-    width: 282px;
-  }
-  .modal__title {
-    padding-top: 44px;
-    padding-bottom: 0;
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 21.78px;
-    text-align: left;
-    padding-left: 22px;
-  }
-  .modal__save-button {
-    background-color: #000;
-    color: #fff;
-    max-width: 238px;
-    width: 238px;
-    height: 50.15px;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    margin-left: calc(8%);
-    margin-bottom: 25px;
-    padding-left: 0px;
-    font-size: 14px;
-  }
-  .modal__input {
-    margin: 0 22px;
-    width: 218px;
-    font-size: 14px;
+    padding: 25px 22px 25px 22px;
   }
 
-  .modal__close-button {
-    background: url(../images/modal-close-mobile.svg) no-repeat center;
-    left: calc(85%);
-    height: 29px;
-    width: 29px;
+  .modal__preview-container {
+    padding: 0;
   }
-}
-.modal__save-button_disabled {
-  background-color: #fffefe;
-  border: 1px solid #e9e9e9;
-  cursor: default;
-  color: #c7c7c7;
+
+  .modal__heading {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 0 75px 0;
+  }
+
+  .modal__form {
+    width: 238px;
+  }
+
+  .modal__button-confirm {
+    width: 238px;
+  }
+
+  .modal__input:last-of-type {
+    margin-bottom: 45px;
+  }
+
+  .modal__button {
+    font-size: 14px;
+  }
 }

@@ -1,55 +1,47 @@
-# Around The U.S.
+# Practicum Project Around The U.S.
 
-## Overview
+This is a project from Practicum of the Web Development program. It was created using HTML, CSS and JavaScript based on the Figma design layout. The web page is responsive, so it has been designed for both desktop and mobile devices. Photos have been optimized using "TinyPng" (https://tinypng.com/).
 
-Around The U.S. is a web application showcasing beautiful locations in the United States. Users can explore various scenic spots and interact with the content.
+## Screeshot
 
-## Technologies Used
+Home Page
+![Around the U.S. Home Page](./src/images/home-page.png "Home Page")
 
-- HTML5
-- CSS3
+Edit Profile Modal
+![Edit Profile Modal](./src/images/edit-profile.png "Edit Profile Modal")
 
-## Functionality
+Create new Card
+![Create new Card](./src/images/create-new-card.png "Create new Card")
 
-### Home Page
+Change Profile Picture
+![Change Profile Picture](./src/images/change-profile-picture.png "Change Profile Picture")
 
-- Header:
+Delete Card
+![Delete Card](./src/images/delete-card.png "Delete Card")
 
-  - Displays the logo of "Around The U.S."
+## Figma
 
-- Profile Section:
+- [Link to the project on Figma](https://www.figma.com/file/E5x6ib3osaUUNwLRRAsTDX/Sprint-9-%E2%80%94-Applied-JavaScript?node-id=1530%3A2&mode=dev)
 
-  - Shows a user's profile picture, name, and description.
-  - Includes an edit button for profile editing.
-  - Features an "Add" button for adding new content.
+## Technologies
 
-- Cards Section:
+- HTML
+- CSS
+- Figma
+- BEM
+- JavaScript
+- Git
+- JSON
+- Webpack
+- GitHub
+- Fetch API
 
-  - Displays a list of cards, each representing a scenic location.
-  - Each card includes an image, location name, and a like button.
+## GitHub Page
 
-- Footer:
-  - Displays a copyright notice.
+- [Link to the Github Page](https://mirkozlatunic.github.io/se_project_aroundtheus/)
 
-## Future Plans
+**Created By [Mirko Zlatunic](https://github.com/mirkozlatunic)**
 
-- Implement user authentication for personalized experiences.
-- Add a feature for users to share their own scenic photos.
-- Enhance the like button functionality with user-specific data.
-- Improve overall responsiveness for better mobile experience.
-- Incorporate dynamic content loading for a smoother user experience.
-- Integrate a commenting system for users to share thoughts on each location.
+## Improvements
 
-## Contributing
-
-Contributions are welcome! Please follow the [contribution guidelines](CONTRIBUTING.md).
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-**GITHUB PAGES URL**
-https://drnoob123.github.io/se_project_aroundtheus/
-
-**Video URL**
-https://drive.google.com/file/d/1TNJG7FCpRDUqHi3vGjO_EQAHqlU_1nPW/view?usp=sharing
+- [x] Preview Image Footer adapt to same as Card for more visibility

@@ -1,38 +1,42 @@
-import Popup from './Popup.js';
+import Popup from "./Popup.js";
 
-export default class PopupWithForm extends Popup {
-  constructor(popupSelector, handleFormSubmit) {
-    super(popupSelector); // Call the parent class constructor
-    if (!this._popup) {
-      throw new Error(`Popup element not found for selector: ${popupSelector}`);
-    }
-    this._handleFormSubmit = handleFormSubmit; // Function to handle form submission
-    this._form = this._popup.querySelector("form"); // Reference to the form inside the popup
-    if (!this._form) {
-      throw new Error("Form element not found inside the popup");
-    }
+export default class PopupWithFrom extends Popup {
+  constructor({ popupSelector, handleFormSubmit, loadingButtonText }) {
+    super({ popupSelector });
+    this._popupForm = this._popupElement.querySelector(".modal__form");
+    this._handleFormSubmit = handleFormSubmit;
+    this._inputList = this._popupElement.querySelectorAll(".modal__input");
+    this._submitButton = this._popupForm.querySelector(".modal__button");
+    this._buttonText = this._submitButton.textContent;
+    this._loadingButtonText = loadingButtonText;
   }
 
   _getInputValues() {
-    const inputs = Array.from(this._form.querySelectorAll("input")); // Collect all input fields
-    const formValues = {};
-    inputs.forEach(input => {
-      formValues[input.name] = input.value; // Store each input's value in an object
+    this._newData = {};
+    this._inputList.forEach((inputElement) => {
+      this._newData[inputElement.name] = inputElement.value;
     });
-    return formValues;
+    return this._newData;
   }
 
-  setEventListeners() {
-    super.setEventListeners(); // Call the parent class's event listener setup
-    this._form.addEventListener("submit", (event) => {
+  setEventListener() {
+    super.setEventListeners();
+    this._popupForm.addEventListener("submit", (event) => {
       event.preventDefault();
-      this._handleFormSubmit(this._getInputValues()); // Pass form values to the submit handler
-      this.close(); // Close the popup after handling form submission
+      this._handleFormSubmit(this._getInputValues());
     });
   }
 
   close() {
-    super.close(); // Call the parent class's close method
-    this._form.reset(); // Reset the form fields
+    this._popupForm.reset();
+    super.close();
+  }
+
+  showLoading() {
+    this._submitButton.textContent = this._loadingButtonText;
+  }
+
+  hideLoading() {
+    this._submitButton.textContent = this._buttonText;
   }
 }
