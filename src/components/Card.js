@@ -36,13 +36,18 @@ export default class Card {
 
     const deleteButton = this._cardElement.querySelector(".card__delete-button");
     deleteButton.addEventListener("click", () => {
-      this._handleDeleteClick(this);
+      this._handleDeleteClick(this); // Pass the card instance to the delete handler
     });
 
     const cardImage = this._cardElement.querySelector(".card__image");
     cardImage.addEventListener("click", () => {
       this._handleCardClick({ name: this._name, link: this._link });
     });
+  }
+
+  removeCard() {
+    this._cardElement.remove(); // Remove the card's DOM element
+    this._cardElement = null;  // Clean up the reference
   }
 
   _getTemplate() {

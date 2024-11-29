@@ -9,16 +9,12 @@ import {
   initialCards,
   profileEditButton,
   profileAddButton,
-  previewImageModal,
   modalTitleInput,
   modalDescriptionInput,
   profileEditForm,
   addCardForm,
-  previewImage,
-  previewFooter,
   formValidationConfig,
 } from "../utils/constants.js";
-import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 // =============================================================================
 // User Info
@@ -55,18 +51,10 @@ function handleCardClick(data) {
   previewImagePopup.open(data);
 }
 
-const deleteCardPopup = new PopupWithConfirmation("#delete-card-modal");
-deleteCardPopup.setEventListeners();
-
-function handleDeleteClick(card) {
-  deleteCardPopup.open();
-  deleteCardPopup.setSubmitAction(() => {
-    deleteCardPopup.setLoading(true);
-    card.remove();
-    deleteCardPopup.close();
-    deleteCardPopup.setLoading(false, "Yes");
-  });
+function handleDeleteClick(cardInstance) {
+  cardInstance.removeCard();
 }
+
 
 function handleLikeClick(cardInstance) {
   cardInstance.toggleLike();
@@ -109,7 +97,6 @@ const profilePopup = new PopupWithForm({
     userInfo.setUserInfo(inputValues);
     profilePopup.close();
   },
-  loadingButtonText: "Saving...",
 });
 
 profilePopup.setEventListener();
