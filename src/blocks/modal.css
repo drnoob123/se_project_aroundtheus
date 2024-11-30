@@ -163,7 +163,7 @@
   margin-bottom: 48px;
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 320px) {
   .modal__close {
     width: 26px;
     height: 26px;
@@ -179,6 +179,8 @@
 
   .modal__container {
     padding: 25px 22px 25px 22px;
+    width: 282px;
+    height: 322px;
   }
 
   .modal__preview-container {
@@ -205,5 +207,11 @@
 
   .modal__button {
     font-size: 14px;
+  }
+  .modal__label {
+    margin: 0;
+  }
+  .modal_input {
+    margin-bottom: 30px;
   }
 }
