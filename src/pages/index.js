@@ -55,7 +55,6 @@ function handleDeleteClick(cardInstance) {
   cardInstance.removeCard();
 }
 
-
 function handleLikeClick(cardInstance) {
   cardInstance.toggleLike();
 }
@@ -78,7 +77,6 @@ function createCard({ name, link }) {
 
 const previewImagePopup = new PopupWithImage({
   popupSelector: "#preview-modal",
-  handleFormSubmit: handleProfileEditSubmit,
 });
 previewImagePopup.setEventListeners();
 
@@ -96,7 +94,7 @@ const profilePopup = new PopupWithForm({
   handleFormSubmit: (inputValues) => {
     userInfo.setUserInfo(inputValues);
     profilePopup.close();
-  },
+  }
 });
 
 profilePopup.setEventListener();
@@ -105,6 +103,7 @@ profileEditButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
   modalTitleInput.value = userData.name;
   modalDescriptionInput.value = userData.about;
+  editFormValidator.resetValidation(); // Clear validation errors before opening
   profilePopup.open();
 });
 
@@ -119,7 +118,6 @@ const editFormValidator = new FormValidator(
   formValidationConfig,
   profileEditForm
 );
-
 editFormValidator.enableValidation();
 
 // =============================================================================
@@ -136,10 +134,9 @@ const addCardPopup = new PopupWithForm({
   loadingButtonText: "Saving...",
 });
 
-addCardPopup.close();
 addCardPopup.setEventListener();
 
 profileAddButton.addEventListener("click", () => {
-  addFormValidator.resetValidation();
+  addFormValidator.resetValidation(); // Clear validation errors before opening
   addCardPopup.open();
 });
