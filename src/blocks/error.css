@@ -2,7 +2,6 @@
   position: relative;
   margin-bottom: 24px;
 }
-
 .modal__error {
   position: absolute;
   top: 40%;
@@ -12,14 +11,12 @@
   visibility: hidden;
   margin-top: 4px;
 }
-
 .modal__error_visible {
   visibility: visible;
 }
-
 .modal__error:last-of-type {
   position: absolute;
-  top: 60%;
+  top: 64%;
   left: 8%;
   color: red;
   font-size: 12px;
@@ -29,7 +26,6 @@
   .modal__error {
     position: absolute;
     top: 44%;
-    left: 8%;
     color: red;
     font-size: 12px;
     visibility: hidden;
@@ -39,11 +35,9 @@
 .modal__error_visible {
   visibility: visible;
 }
-
 .modal__error:last-of-type {
   position: absolute;
   top: 62%;
-  left: 8%;
   color: red;
   font-size: 12px;
   margin-top: 0;

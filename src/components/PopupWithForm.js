@@ -30,8 +30,4 @@ export default class PopupWithForm extends Popup {
   _resetForm() {
     this._popupForm.reset(); // Clears the input fields
   }
-
-  close() {
-    super.close(); // Only close without resetting inputs
-  }
 }

@@ -199,6 +199,7 @@
 
   .modal__button-confirm {
     width: 238px;
+    font-size: 14px;
   }
 
   .modal__input:last-of-type {
