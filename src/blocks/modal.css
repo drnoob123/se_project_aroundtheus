@@ -173,8 +173,8 @@
   }
 
   #preview-close-button {
-    bottom: calc(100% + 5px);
-    left: calc(100% + 5px);
+    top: calc(-14%);
+    left: calc(80%);
   }
 
   .modal__container {
